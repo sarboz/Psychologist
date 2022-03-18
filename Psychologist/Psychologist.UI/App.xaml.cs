@@ -1,4 +1,6 @@
 ﻿using System;
+using Autofac;
+using Psychologist.Core.Abstractions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,22 +14,9 @@ namespace Psychologist.UI
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
-        }
-
-        protected override void OnStart()
-        {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
+            var container = new DependencyInitializer().Build();
+            var navigationService = container.Resolve<INavigationService>();
+            navigationService.InitMainPage();
         }
     }
 }

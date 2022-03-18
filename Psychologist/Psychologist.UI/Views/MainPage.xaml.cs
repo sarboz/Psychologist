@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace Psychologist.UI
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage 
     {
         public MainPage()
         {
