@@ -10,6 +10,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012"/>
+        <PackageReference Include="Autofac" Version="6.3.0" />
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Psychologist.Core\Psychologist.Core.csproj" />
     </ItemGroup>
 </Project>
