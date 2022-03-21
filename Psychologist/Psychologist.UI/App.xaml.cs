@@ -1,6 +1,7 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
+using Microsoft.Extensions.DependencyModel;
 using Psychologist.Core.Abstractions;
+using Psychologist.UI.Abstractions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,12 +9,13 @@ using Xamarin.Forms.Xaml;
 
 namespace Psychologist.UI
 {
-    public partial class App : Application
+    public partial class App
     {
         public App()
         {
             InitializeComponent();
 
+            DependencyService.Get<IDatabaseFileProvider>().CopyToSpecificFolder();
             var container = new DependencyInitializer().Build();
             var navigationService = container.Resolve<INavigationService>();
             navigationService.InitMainPage();

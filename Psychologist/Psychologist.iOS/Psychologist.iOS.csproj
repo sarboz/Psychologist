@@ -87,6 +87,7 @@
         <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     </PropertyGroup>
     <ItemGroup>
+        <Compile Include="DatabaseFileProvider.cs" />
         <Compile Include="Main.cs" />
         <Compile Include="AppDelegate.cs" />
         <None Include="Entitlements.plist" />
@@ -113,6 +114,9 @@
             <Project>{26952A88-A771-404C-9ACB-DD5F5930D635}</Project>
             <Name>Psychologist.UI</Name>
         </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="Resources\psychologist.db" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

@@ -35,7 +35,7 @@ namespace Psychologist.Core.Services
 
         public void InitMainPage()
         {
-            SetMainPage<HomeViewModel>();
+            SetMainPage<MainViewModel>();
         }
 
         private IViewFor<TViewModel> GetView<TViewModel>(TViewModel viewModel) where TViewModel : BaseViewModel

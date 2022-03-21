@@ -46,9 +46,11 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.15" />
         <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="DatabaseFileProvider.cs" />
         <Compile Include="MainActivity.cs" />
         <Compile Include="Resources\Resource.Designer.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,6 +71,9 @@
             <Project>{26952A88-A771-404C-9ACB-DD5F5930D635}</Project>
             <Name>Psychologist.UI</Name>
         </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <AndroidAsset Include="Assets\psychologist.db" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
