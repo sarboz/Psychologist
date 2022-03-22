@@ -7,5 +7,6 @@ namespace Psychologist.Core.Repository.Entities
     {
         public string Title { get; set; }
         public string ChapterOrder { get; set; }
+        public string Image { get; set; }
     }
 }

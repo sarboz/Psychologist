@@ -22,6 +22,13 @@ namespace Psychologist.Core.Services
             return _facade.PushAsync(view);
         }
 
+        public Task NavigateAsync<TViewModel>(params (string paramaterName, object value)[] parameters)
+            where TViewModel : BaseViewModel
+        {
+            var viewFor = GetView<TViewModel>(parameters);
+            return _facade.PushAsync(viewFor);
+        }
+
         public Task PopNavigateAsync()
         {
             return _facade.PopAsync();

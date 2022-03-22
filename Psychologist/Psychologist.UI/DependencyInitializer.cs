@@ -13,6 +13,8 @@ namespace Psychologist.UI
         protected override void RegisterTypes(ContainerBuilder builder)
         {
             builder.RegisterType<MainPage>().As<IViewFor<MainViewModel>>();
+            builder.RegisterType<SubChapterPage>().As<IViewFor<SubChapterViewModel>>();
+            builder.RegisterType<ArticlePage>().As<IViewFor<ArticleViewModel>>();
             builder.RegisterType<DatabasePathProvider>().As<IDatabasePathProvider>();
             builder.RegisterType<NavigationFacade>().As<INavigationFacade>();
         }

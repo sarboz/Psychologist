@@ -16,11 +16,11 @@ namespace Psychologist.UI.Facades
             switch (Device.RuntimePlatform)
             {
                 case Device.Android:
-                    raw.SetProvider( new SQLite3Provider_e_sqlite3());
+                    Batteries_V2.Init();
                     directoryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                     break;
                 case Device.iOS:
-                    SQLitePCL.raw.sqlite3_initialize();
+                    Batteries_V2.Init();
                     directoryPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..",
                         "Library");
                     break;

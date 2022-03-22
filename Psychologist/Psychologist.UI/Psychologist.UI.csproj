@@ -11,6 +11,7 @@
 
     <ItemGroup>
         <PackageReference Include="Autofac" Version="6.3.0" />
+        <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.0.4" />
         <PackageReference Include="SQLitePCLRaw.provider.e_sqlite3" Version="2.0.4" />
         <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     </ItemGroup>
@@ -24,5 +25,10 @@
         <DependentUpon>MainPage.xaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\materialdesignicons_font.ttf" />
+      <EmbeddedResource Include="Resources\materialdesignicons_font.ttf" />
     </ItemGroup>
 </Project>

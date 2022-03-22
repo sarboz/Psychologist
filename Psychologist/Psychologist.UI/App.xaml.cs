@@ -1,11 +1,7 @@
 ﻿using Autofac;
-using Microsoft.Extensions.DependencyModel;
 using Psychologist.Core.Abstractions;
 using Psychologist.UI.Abstractions;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 
 namespace Psychologist.UI
 {

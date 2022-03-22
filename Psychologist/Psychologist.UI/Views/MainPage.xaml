@@ -3,13 +3,17 @@
 <abstractions:BaseContentPage x:TypeArguments="viewModels:MainViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               x:DataType="viewModels:MainViewModel"
+                              Title="Доступный Психолог"
                               xmlns:abstractions="clr-namespace:Psychologist.UI.Abstractions;assembly=Psychologist.UI"
                               xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
                               xmlns:entities="clr-namespace:Psychologist.Core.Repository.Entities;assembly=Psychologist.Core"
+                              xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
                               x:Class="Psychologist.UI.Views.MainPage">
 
     <StackLayout>
-        <CollectionView ItemsSource="{Binding Chapters}">
+        <CollectionView
+            SelectedItem="{Binding SelectedChapter}"
+            ItemsSource="{Binding Chapters}">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical"
                                    ItemSpacing="10" />
@@ -17,7 +21,21 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame CornerRadius="10" Margin="8" x:DataType="entities:Chapter">
-                        <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Title" />
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding }" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Image>
+                                <Image.Source>
+                                    <FontImageSource
+                                        FontFamily="{StaticResource MaterialFontFamily}"
+                                        Glyph="{x:Static resources:MaterialIcons.NetworkStrengthOffOutline}"
+                                        Size="Medium"
+                                        Color="White" />
+                                </Image.Source>
+                            </Image>
+                            <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Title" />
+                        </StackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
