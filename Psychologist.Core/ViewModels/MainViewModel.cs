@@ -12,25 +12,31 @@ namespace Psychologist.Core.ViewModels
     {
         private readonly IChapterRepository _chapterRepository;
         private readonly INavigationService _navigationService;
+        private Chapter _selectedActivity;
 
         public ObservableCollection<Chapter> Chapters { get; } = new();
 
-        public ReactiveCommand<Unit, Unit> ChapterSelectCommand { get; set; }
-        public Chapter SelectedChapter { get; set; }
+        public ReactiveCommand<Chapter, Unit> ChapterSelectCommand { get; set; }
+
+        public Chapter SelectedChapter
+        {
+            get => _selectedActivity;
+            set => this.RaiseAndSetIfChanged(ref _selectedActivity, value);
+        }
 
         public MainViewModel(IChapterRepository chapterRepository, INavigationService navigationService)
         {
             _chapterRepository = chapterRepository;
             _navigationService = navigationService;
 
-            ChapterSelectCommand = ReactiveCommand.CreateFromTask(NavigateToSubChapter);
+            ChapterSelectCommand = ReactiveCommand.CreateFromTask<Chapter>(NavigateToSubChapter);
         }
 
-        private Task NavigateToSubChapter()
+        private Task NavigateToSubChapter(Chapter chapter)
         {
             if (SelectedChapter is not null)
             {
-                _navigationService.NavigateAsync<SubChapterViewModel>(("chapterId", SelectedChapter.Id));
+                _navigationService.NavigateAsync<SubChapterViewModel>(("chapter", SelectedChapter));
                 SelectedChapter = null;
             }
 

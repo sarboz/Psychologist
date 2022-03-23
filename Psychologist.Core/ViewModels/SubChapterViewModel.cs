@@ -1,27 +1,47 @@
 ﻿using System.Collections.ObjectModel;
+using System.Reactive;
 using System.Threading.Tasks;
 using DynamicData;
 using Psychologist.Core.Abstractions;
 using Psychologist.Core.Repository.Entities;
+using ReactiveUI;
 
 namespace Psychologist.Core.ViewModels
 {
     public class SubChapterViewModel : BaseViewModel
     {
+        private readonly INavigationService _navigationService;
         private readonly ISubChapterRepository _repository;
-        private readonly int _chapterId;
-        private ObservableCollection<SubChapter> Items { get; } = new();
+        public readonly Chapter Chapter;
+        public SubChapter SelectedSubChapter { get; set; }
+        public ReactiveCommand<Unit, Unit> SubChapterSelectCommand { get; }
+        public ObservableCollection<SubChapter> Items { get; } = new();
 
-        public SubChapterViewModel(ISubChapterRepository repository, int chapterId)
+        public SubChapterViewModel(INavigationService navigationService, ISubChapterRepository repository,
+            Chapter chapter)
         {
+            _navigationService = navigationService;
             _repository = repository;
-            _chapterId = chapterId;
+            Chapter = chapter;
+            Title = chapter.Title;
+            SubChapterSelectCommand = ReactiveCommand.CreateFromTask(NavigateToArticleViewModel);
+        }
+
+        private Task NavigateToArticleViewModel()
+        {
+            if (SelectedSubChapter is not null)
+            {
+                _navigationService.NavigateAsync<ArticleViewModel>(("subChapter", SelectedSubChapter));
+                SelectedSubChapter = null;
+            }
+
+            return Task.CompletedTask;
         }
 
         public override async Task ViewInitialized()
         {
             Items.Clear();
-            var items = await _repository.GetSubChapterByChapterId(_chapterId);
+            var items = await _repository.GetSubChapterByChapterId(Chapter.Id);
             Items.AddRange(items);
         }
     }

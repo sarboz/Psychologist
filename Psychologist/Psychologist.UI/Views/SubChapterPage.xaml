@@ -1,10 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<abstractions:BaseContentPage x:TypeArguments="viewModels:SubChapterViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+<abstractions:BaseContentPage x:TypeArguments="viewModels:SubChapterViewModel"
+                              x:DataType="viewModels:SubChapterViewModel"
+                              xmlns="http://xamarin.com/schemas/2014/forms"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:abstractions="clr-namespace:Psychologist.UI.Abstractions;assembly=Psychologist.UI"
                               xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
+                              xmlns:entities="clr-namespace:Psychologist.Core.Repository.Entities;assembly=Psychologist.Core"
                               x:Class="Psychologist.UI.Views.SubChapterPage">
 
-      
+    <CollectionView
+        Margin="10"
+        SelectionMode="Single"
+        SelectedItem="{Binding SelectedSubChapter}"
+        SelectionChangedCommand="{Binding SubChapterSelectCommand}"
+        SelectionChangedCommandParameter="{Binding SelectedSubChapter}"
+        ItemsSource="{Binding Items}">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical"
+                               ItemSpacing="7" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame HasShadow="True" x:DataType="entities:SubChapter">
+                    <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Title" />
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </abstractions:BaseContentPage>

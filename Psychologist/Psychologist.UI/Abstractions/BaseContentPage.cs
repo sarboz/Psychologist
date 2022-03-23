@@ -14,7 +14,6 @@ namespace Psychologist.UI.Abstractions
 
         public TViewModel ViewModel { get; set; }
 
-
         private bool isInited;
 
         protected override void OnAppearing()
@@ -23,6 +22,8 @@ namespace Psychologist.UI.Abstractions
             if (!isInited)
                 ViewModel?.ViewInitialized();
             isInited = true;
+            if (!string.IsNullOrEmpty(ViewModel?.Title))
+                Title = ViewModel?.Title;
         }
     }
 }

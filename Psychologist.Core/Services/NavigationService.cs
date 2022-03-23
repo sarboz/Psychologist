@@ -55,8 +55,8 @@ namespace Psychologist.Core.Services
         private IViewFor<TVieWModel> GetView<TVieWModel>(params (string paramaterName, object value)[] parameters)
             where TVieWModel : BaseViewModel
         {
-            var viewModel = _resolver.Resolve<TVieWModel>(parameters);
-            return GetView(viewModel);
+            var model = _resolver.Resolve<TVieWModel>(parameters);
+            return GetView(model);
         }
     }
 }

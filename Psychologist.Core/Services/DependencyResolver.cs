@@ -9,7 +9,7 @@ namespace Psychologist.Core.Services
         public T Resolve<T>(params (string parametrName, object value)[] parameters)
         {
             var namedParameters = parameters.Select(param => new NamedParameter(param.parametrName, param.value));
-            var container = DependencyInitializerCore.Container;
+            var container = DependencyInitializerCore.Container.BeginLifetimeScope();
             return container.Resolve<T>(namedParameters);
         }
     }

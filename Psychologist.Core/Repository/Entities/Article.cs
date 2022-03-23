@@ -2,7 +2,7 @@
 {
     public class Article : BaseEntity
     {
-        public int IdSubChapter { get; set; }
+        public int SubChapterId { get; set; }
         public string Content { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace Psychologist.Core.Repository
 
         public async Task<Article> GetBySubChapterId(int id)
         {
-            return (await _context.Get<Article>().Where(article => article.IdSubChapter == id).ToListAsync()).First();
+            return (await _context.Get<Article>().Where(article => article.SubChapterId == id).ToListAsync()).First();
         }
 
         public void Update(Article article)

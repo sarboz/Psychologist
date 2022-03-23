@@ -18,6 +18,10 @@ namespace Psychologist.Core
             var builder = new ContainerBuilder();
 
             builder.RegisterType<MainViewModel>().AsSelf();
+            builder.RegisterType<SubChapterViewModel>().AsSelf();
+            builder.RegisterType<ArticleViewModel>().AsSelf();
+            
+            
             builder.RegisterType<Context>().As<IContext>().OnActivated(OnDatabaseCreating);
             builder.RegisterType<NavigationService>().As<INavigationService>().SingleInstance();
             builder.RegisterType<DependencyResolver>().As<IDependencyResolver>().SingleInstance();
