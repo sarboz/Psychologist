@@ -15,6 +15,7 @@ namespace Psychologist.Core.ViewModels
         public readonly Chapter Chapter;
         public SubChapter SelectedSubChapter { get; set; }
         public ReactiveCommand<Unit, Unit> SubChapterSelectCommand { get; }
+        public ReactiveCommand<SubChapter, Unit> IsFavoriteChangedCommand { get; }
         public ObservableCollection<SubChapter> Items { get; } = new();
 
         public SubChapterViewModel(INavigationService navigationService, ISubChapterRepository repository,
@@ -25,6 +26,13 @@ namespace Psychologist.Core.ViewModels
             Chapter = chapter;
             Title = chapter.Title;
             SubChapterSelectCommand = ReactiveCommand.CreateFromTask(NavigateToArticleViewModel);
+            IsFavoriteChangedCommand = ReactiveCommand.Create<SubChapter>(ChangeFavoriteValue);
+        }
+
+        private void ChangeFavoriteValue(SubChapter obj)
+        {
+            obj.IsFavorite = obj.IsFavorite != true;
+            _repository.Update(obj);
         }
 
         private Task NavigateToArticleViewModel()

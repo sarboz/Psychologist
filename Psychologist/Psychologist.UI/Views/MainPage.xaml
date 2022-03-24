@@ -27,15 +27,8 @@
                 <DataTemplate>
                     <Frame CornerRadius="7" HasShadow="True" x:DataType="entities:Chapter">
                         <StackLayout>
-                            <Image>
-                                <Image.Source>
-                                    <FontImageSource
-                                        FontFamily="{StaticResource MaterialFontFamily}"
-                                        Glyph="{x:Static resources:MaterialIcons.NetworkStrengthOffOutline}"
-                                        Size="Medium"
-                                        Color="White" />
-                                </Image.Source>
-                            </Image>
+                            <Image Source="{Binding Image}" HeightRequest="150"/>
+                            <Label Text="{Binding ChapterOrder}" FontSize="Small"/>
                             <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Title" />
                         </StackLayout>
                     </Frame>

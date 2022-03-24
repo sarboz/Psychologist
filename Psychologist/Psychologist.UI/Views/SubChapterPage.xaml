@@ -7,6 +7,8 @@
                               xmlns:abstractions="clr-namespace:Psychologist.UI.Abstractions;assembly=Psychologist.UI"
                               xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
                               xmlns:entities="clr-namespace:Psychologist.Core.Repository.Entities;assembly=Psychologist.Core"
+                              xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
+                              x:Name="This"
                               x:Class="Psychologist.UI.Views.SubChapterPage">
 
     <CollectionView
@@ -23,7 +25,34 @@
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Frame HasShadow="True" x:DataType="entities:SubChapter">
-                    <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Title" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Subtitle" />
+                        <ImageButton HorizontalOptions="EndAndExpand" BackgroundColor="Transparent"
+                                     Command="{Binding Source={x:Reference This}, Path= ViewModel.IsFavoriteChangedCommand}" CommandParameter="{Binding .}">
+                            <ImageButton.Triggers>
+                                <DataTrigger Binding="{Binding IsFavorite}"
+                                             TargetType="ImageButton"
+                                             Value="true">
+                                    <Setter Property="Source">
+                                        <FontImageSource
+                                            Color="Red"
+                                            FontFamily="{StaticResource MaterialFontFamily}"
+                                            Glyph="{x:Static resources:MaterialIcons.Heart}" />
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsFavorite}"
+                                             TargetType="ImageButton"
+                                             Value="false">
+                                    <Setter Property="Source">
+                                        <FontImageSource
+                                            Color="Black"
+                                            FontFamily="{StaticResource MaterialFontFamily}"
+                                            Glyph="{x:Static resources:MaterialIcons.HeartOutline}" />
+                                    </Setter>
+                                </DataTrigger>
+                            </ImageButton.Triggers>
+                        </ImageButton>
+                    </StackLayout>
                 </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>

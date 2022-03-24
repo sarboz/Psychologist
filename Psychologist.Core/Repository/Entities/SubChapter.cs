@@ -2,9 +2,16 @@
 
 namespace Psychologist.Core.Repository.Entities
 {
-    public class SubChapter:BaseEntity
+    public class SubChapter : BaseEntity
     {
-        public bool IsFavorite { get; set; }
+        private bool _isFavorite;
+
+        public bool IsFavorite
+        {
+            get => _isFavorite;
+            set => this.RaiseAndSetIfChanged(ref _isFavorite, value);
+        }
+
         public string Title { get; set; }
         public int IdChapter { get; set; }
     }
