@@ -25,5 +25,10 @@ namespace Psychologist.Core.Repository
         {
             _context.Update(subChapter);
         }
+
+        public Task<List<SubChapter>> GetFavorites()
+        {
+            return _context.Get<SubChapter>().Where(chapter => chapter.IsFavorite).ToListAsync();
+        }
     }
 }

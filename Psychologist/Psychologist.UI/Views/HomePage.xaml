@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<abstractions:BaseTabbedPage x:TypeArguments="viewModels:HomeViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                             xmlns:views="clr-namespace:Psychologist.UI.Views;assembly=Psychologist.UI"
+                             xmlns:androidSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+                             xmlns:abstractions="clr-namespace:Psychologist.UI.Abstractions;assembly=Psychologist.UI"
+                             xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
+                             androidSpecific:TabbedPage.ToolbarPlacement="Bottom"
+                             Title="Доступный Психолог"
+                             x:Class="Psychologist.UI.Views.HomePage">
+    <TabbedPage.Children>
+        <views:MainPage/>
+        <views:FavoriteSubChapterPage/>
+        <views:AboutPage/>
+    </TabbedPage.Children>
+</abstractions:BaseTabbedPage>

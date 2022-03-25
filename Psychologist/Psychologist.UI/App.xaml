@@ -4,7 +4,6 @@
              xmlns:system="clr-namespace:System;assembly=netstandard"
              x:Class="Psychologist.UI.App">
     <Application.Resources>
-
         <x:String x:Key="MaterialFontFamily">materialIcons</x:String>
     </Application.Resources>
 </Application>

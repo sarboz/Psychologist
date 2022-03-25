@@ -20,6 +20,8 @@ namespace Psychologist.Core
             builder.RegisterType<MainViewModel>().AsSelf();
             builder.RegisterType<SubChapterViewModel>().AsSelf();
             builder.RegisterType<ArticleViewModel>().AsSelf();
+            builder.RegisterType<HomeViewModel>().AsSelf();
+            builder.RegisterType<FavoriteSubChapterViewModel>().AsSelf();
             
             
             builder.RegisterType<Context>().As<IContext>().OnActivated(OnDatabaseCreating);

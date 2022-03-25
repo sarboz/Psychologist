@@ -10,6 +10,11 @@
                               xmlns:entities="clr-namespace:Psychologist.Core.Repository.Entities;assembly=Psychologist.Core"
                               xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
                               x:Class="Psychologist.UI.Views.MainPage">
+    <ContentPage.IconImageSource>
+        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                         Glyph="{x:Static resources:MaterialIcons.HomeOutline}"
+                         Color="Chartreuse" />
+    </ContentPage.IconImageSource>
 
     <StackLayout>
         <CollectionView

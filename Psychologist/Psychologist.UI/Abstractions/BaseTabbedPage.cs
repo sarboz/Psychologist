@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Psychologist.UI.Abstractions
 {
-    public class BaseContentPage<TViewModel> : ContentPage, IViewFor<TViewModel> where TViewModel : BaseViewModel
+    public class BaseTabbedPage<TViewModel> : TabbedPage, IViewFor<TViewModel> where TViewModel : BaseViewModel
     {
         object IViewFor.ViewModel
         {
