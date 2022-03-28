@@ -54,6 +54,7 @@
         <Compile Include="MainActivity.cs" />
         <Compile Include="Resources\Resource.Designer.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="SplashScreenActivity.cs" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Resources\AboutResources.txt" />
@@ -61,8 +62,20 @@
         <None Include="Properties\AndroidManifest.xml" />
     </ItemGroup>
     <ItemGroup>
+        <AndroidResource Include="Resources\drawable\background.png">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
         <AndroidResource Include="Resources\drawable\boy.png" />
         <AndroidResource Include="Resources\drawable\high_five.png" />
+        <AndroidResource Include="Resources\drawable\icon.xml">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable\ic_launcher_foreground.png">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
         <AndroidResource Include="Resources\drawable\personality_disorder.png" />
         <AndroidResource Include="Resources\drawable\problem.png" />
         <AndroidResource Include="Resources\drawable\psycho.png" />
@@ -80,6 +93,9 @@
     </ItemGroup>
     <ItemGroup>
       <AndroidAsset Include="Assets\psychologist.db" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Resources\mipmap" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

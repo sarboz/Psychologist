@@ -30,9 +30,9 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame CornerRadius="7" HasShadow="True" x:DataType="entities:Chapter">
+                    <Frame CornerRadius="7" HasShadow="False" x:DataType="entities:Chapter">
                         <StackLayout>
-                            <Image Source="{Binding Image}" HeightRequest="150"/>
+                            <Image Source="{Binding Image}" HeightRequest="120"/>
                             <Label Text="{Binding ChapterOrder}" FontSize="Small"/>
                             <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Title" />
                         </StackLayout>

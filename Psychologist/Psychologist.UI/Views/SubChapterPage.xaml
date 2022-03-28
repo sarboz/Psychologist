@@ -24,11 +24,12 @@
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Frame HasShadow="True" x:DataType="entities:SubChapter">
+                <Frame HasShadow="False" x:DataType="entities:SubChapter">
                     <StackLayout Orientation="Horizontal">
                         <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Subtitle" />
                         <ImageButton HorizontalOptions="EndAndExpand" BackgroundColor="Transparent"
-                                     Command="{Binding Source={x:Reference This}, Path= ViewModel.IsFavoriteChangedCommand}" CommandParameter="{Binding .}">
+                                     Command="{Binding Source={x:Reference This}, Path= ViewModel.IsFavoriteChangedCommand}"
+                                     CommandParameter="{Binding .}">
                             <ImageButton.Triggers>
                                 <DataTrigger Binding="{Binding IsFavorite}"
                                              TargetType="ImageButton"
