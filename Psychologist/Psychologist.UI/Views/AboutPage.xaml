@@ -3,7 +3,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
-             Title="O приложении"
+             Title="Поддержка"
              x:Class="Psychologist.UI.Views.AboutPage">
     <ContentPage.IconImageSource>
         <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
@@ -11,10 +11,22 @@
                          Color="Chartreuse" />
     </ContentPage.IconImageSource>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView Orientation="Vertical">
+            <Grid RowDefinitions="auto,auto">
+                <StackLayout Padding="20">
+                    <Image Margin="0,10,0,0" Source="oon_icon.png" WidthRequest="200" HeightRequest="400"
+                           HorizontalOptions="Center" />
+                    <Label FontSize="16" HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text=" Данная инициатива реализуется в рамках " />
+                                <Span FontAttributes="Bold" Text=" InnoResponse Challenge IV проекта ПРООН "></Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label FontSize="16" HorizontalTextAlignment="Center" Margin="0,10,0,0" Text=" «Содействие гражданскому сообществу в устранении последствий COVID-19»"></Label>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

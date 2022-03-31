@@ -13,5 +13,6 @@
         <views:MainPage/>
         <views:FavoriteSubChapterPage/>
         <views:AboutPage/>
+        <views:AuthorPage/>
     </TabbedPage.Children>
 </abstractions:BaseTabbedPage>

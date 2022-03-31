@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<abstractions:BaseContentPage x:TypeArguments="viewModels:AuthorViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              x:DataType="viewModels:AuthorViewModel"
+                              xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
+                              xmlns:abstractions="clr-namespace:Psychologist.UI.Abstractions;assembly=Psychologist.UI"
+                              xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
+                              Title="Об авторе"
+                              x:Class="Psychologist.UI.Views.AuthorPage">
+    <ContentPage.IconImageSource>
+        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                         Glyph="{x:Static resources:MaterialIcons.InformationOutline}"
+                         Color="Chartreuse" />
+    </ContentPage.IconImageSource>
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical">
+            <Grid RowDefinitions="auto,auto">
+                <StackLayout Padding="20">
+                    <Image Margin="0,10,0,0" Source="ic_launcher_foreground.png" WidthRequest="250" HeightRequest="250"
+                           HorizontalOptions="Center" />
+                    <Label FontSize="18" HorizontalTextAlignment="Center" Text=" Шухрат Гайбуллаевич Ибрагимов">
+                    </Label>
+                    <Label HorizontalTextAlignment="Center"
+                           Text=" Магистр Психологии (Московский Финансово-Промышленный Университет «Синергия»)" />
+                    <Label HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Автор книги: "></Span>
+                                <Span FontAttributes="Bold" Text="«В гостьях у Всевышнего – Господа Миров». "></Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center" Margin="0,10,0,0"
+                           Text=" Тел. (+992) 92 777 24 45 ">
+                    </Label>
+                    <Label FontSize="16" HorizontalTextAlignment="Center" Margin="0,10,0,0"
+                           Text="Instagram @shukhratjoni  ">
+                    </Label>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</abstractions:BaseContentPage>

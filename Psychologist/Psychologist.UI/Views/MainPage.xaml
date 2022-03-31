@@ -3,7 +3,7 @@
 <abstractions:BaseContentPage x:TypeArguments="viewModels:MainViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               x:DataType="viewModels:MainViewModel"
-                              Title="Доступный Психолог"
+                              Title="Главная"
                               x:Name="This"
                               xmlns:abstractions="clr-namespace:Psychologist.UI.Abstractions;assembly=Psychologist.UI"
                               xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"

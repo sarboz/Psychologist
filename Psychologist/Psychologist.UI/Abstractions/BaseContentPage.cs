@@ -18,13 +18,14 @@ namespace Psychologist.UI.Abstractions
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
+            if (!string.IsNullOrEmpty(ViewModel?.Title))
+                Title = ViewModel?.Title;
             ViewModel.ViewAppearing();
             if (!isInited)
                 ViewModel?.ViewInitialized();
+            base.OnAppearing();
             isInited = true;
-            if (!string.IsNullOrEmpty(ViewModel?.Title))
-                Title = ViewModel?.Title;
+            
         }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Psychologist.UI.Views
@@ -15,6 +9,19 @@ namespace Psychologist.UI.Views
         public ArticlePage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (ViewModel != null)
+            {
+                var htmlSource = new HtmlWebViewSource
+                {
+                    Html = "<div style='text-align: justify;text-indent: 20px;'>" + ViewModel.Article.Content + "</div>"
+                };
+                WebView.Source = htmlSource;
+            }
         }
     }
 }

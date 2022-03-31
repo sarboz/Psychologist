@@ -50,6 +50,7 @@
         <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="CustomLabelRenderer.cs" />
         <Compile Include="DatabaseFileProvider.cs" />
         <Compile Include="MainActivity.cs" />
         <Compile Include="Resources\Resource.Designer.cs" />
@@ -76,12 +77,21 @@
           <SubType>Designer</SubType>
           <Generator>MSBuild:UpdateGeneratedFiles</Generator>
         </AndroidResource>
+        <AndroidResource Include="Resources\drawable\oon_icon.png" />
         <AndroidResource Include="Resources\drawable\personality_disorder.png" />
         <AndroidResource Include="Resources\drawable\problem.png" />
         <AndroidResource Include="Resources\drawable\psycho.png" />
+        <AndroidResource Include="Resources\drawable\psychology.png" />
         <AndroidResource Include="Resources\drawable\work_life.png" />
         <AndroidResource Include="Resources\layout\Tabbar.axml" />
         <AndroidResource Include="Resources\layout\Toolbar.axml" />
+        <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
+        <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher_round.xml" />
+        <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_foreground.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png" />
         <AndroidResource Include="Resources\values\styles.xml" />
         <AndroidResource Include="Resources\values\colors.xml" />
     </ItemGroup>
@@ -93,9 +103,6 @@
     </ItemGroup>
     <ItemGroup>
       <AndroidAsset Include="Assets\psychologist.db" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Resources\mipmap" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

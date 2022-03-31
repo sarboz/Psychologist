@@ -6,10 +6,21 @@
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:abstractions="clr-namespace:Psychologist.UI.Abstractions;assembly=Psychologist.UI"
                               xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
+                              xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
                               x:Class="Psychologist.UI.Views.ArticlePage">
-    <Grid>
-        <ScrollView Margin="5" Padding="5">
-            <Label HorizontalTextAlignment="Start" FontSize="15"  Text="{Binding  Article.Content}" />
-        </ScrollView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Вопрос психологу"
+                     Order="Primary"
+                     Command="{Binding NavigateToContactCommand}"
+                     Priority="0" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                 Glyph="{x:Static resources:MaterialIcons.CommentQuestionOutline}"
+                                 Color="White" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <Grid Padding="5">
+        <WebView x:Name="WebView"/>
     </Grid>
 </abstractions:BaseContentPage>

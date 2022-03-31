@@ -17,6 +17,7 @@ namespace Psychologist.UI
             builder.RegisterType<ArticlePage>().As<IViewFor<ArticleViewModel>>();
             builder.RegisterType<HomePage>().As<IViewFor<HomeViewModel>>();
             builder.RegisterType<FavoriteSubChapterPage>().As<IViewFor<FavoriteSubChapterViewModel>>();
+            builder.RegisterType<AuthorPage>().As<IViewFor<AuthorViewModel>>();
             
             builder.RegisterType<DatabasePathProvider>().As<IDatabasePathProvider>();
             builder.RegisterType<NavigationFacade>().As<INavigationFacade>();
