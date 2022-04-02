@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DesignSurface">
-    <option name="filePathToZoomLevelMap">
-      <map>
-        <entry key="..\:/repos/Psychologist/Psychologist/Psychologist.Droid/Resources/drawable/icon.xml" value="0.12916666666666668" />
-        <entry key="..\:/repos/Psychologist/Psychologist/Psychologist.Droid/Resources/mipmap-anydpi-v26/ic_launcher.xml" value="0.2074074074074074" />
-        <entry key="..\:/repos/Psychologist/Psychologist/Psychologist.Droid/Resources/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2074074074074074" />
-        <entry key="..\:/repos/Psychologist/Psychologist/Psychologist.Droid/Resources/mipmap/icon.xml" value="0.25625" />
-      </map>
-    </option>
-  </component>
   <component name="com.jetbrains.rider.android.RiderAndroidMiscFileCreationComponent">
     <option name="ENSURE_MISC_FILE_EXISTS" value="true" />
   </component>
