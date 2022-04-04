@@ -37,7 +37,7 @@ namespace Psychologist.Core.ViewModels
             _subChapterRepository = subChapterRepository;
             _articleRepository = articleRepository;
             _navigationService = navigationService;
-            NavigationBackCommand=ReactiveCommand.CreateFromTask(navigationService.PopNavigateAsync);
+            NavigationBackCommand = ReactiveCommand.CreateFromTask(navigationService.PopNavigateAsync);
             SubChapterSelectCommand = ReactiveCommand.CreateFromTask(NavigateToArticleViewModel);
             SearchCommand = ReactiveCommand.CreateFromTask(Search);
         }
@@ -65,6 +65,7 @@ namespace Psychologist.Core.ViewModels
                 DisplayItems.AddRange(enumerable);
                 return;
             }
+            DisplayItems.Clear();
             DisplayItems.AddRange(SubChapters);
         }
 

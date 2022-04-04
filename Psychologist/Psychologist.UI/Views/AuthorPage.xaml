@@ -29,7 +29,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Автор книги: "></Span>
-                                <Span FontAttributes="Bold" Text="«В гостьях у Всевышнего – Господа Миров». "></Span>
+                                <Span FontAttributes="Bold" Text="«В гостях у Всевышнего – Господа Миров». "></Span>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>

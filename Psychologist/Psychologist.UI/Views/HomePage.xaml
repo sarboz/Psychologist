@@ -17,7 +17,7 @@
                      Priority="0" >
             <ToolbarItem.IconImageSource>
                 <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
-                                 Glyph="{x:Static resources:MaterialIcons.SelectSearch}"
+                                 Glyph="{x:Static resources:MaterialIcons.Magnify}"
                                  Color="White" />
             </ToolbarItem.IconImageSource>
         </ToolbarItem>

@@ -16,11 +16,12 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <StackLayout Orientation="Horizontal">
-                <ImageButton Margin="5" Command="{Binding NavigationBackCommand}" BackgroundColor="Transparent">
+                <ImageButton Margin="5,0,0,0" Command="{Binding NavigationBackCommand}" BackgroundColor="Transparent">
                     <ImageButton.Source>
                         <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
                                          Glyph="{x:Static resources:MaterialIcons.ArrowLeft}"
-                                         Color="Black" />
+                                         Color="Black"
+                                         Size="25"/>
                     </ImageButton.Source>
                 </ImageButton>
                 <SearchBar Placeholder="Поиск" Text="{Binding SearchQuery}" x:Name="SearchView"
