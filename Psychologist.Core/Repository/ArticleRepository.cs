@@ -25,5 +25,11 @@ namespace Psychologist.Core.Repository
         {
             _context.Update(article);
         }
+
+        public Task<List<Article>> Search(string text)
+        {
+            return _context.Get<Article>().Where(article => article.Content.ToLower().Contains(text.ToLower())).Select(article =>
+                new Article { SubChapterId = article.SubChapterId, Id = article.Id }).ToListAsync();
+        }
     }
 }

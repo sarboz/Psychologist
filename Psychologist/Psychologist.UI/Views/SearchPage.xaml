@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<abstractions:BaseContentPage x:TypeArguments="viewModels:SearchViewModel"
+                              xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              xmlns:abstractions="clr-namespace:Psychologist.UI.Abstractions;assembly=Psychologist.UI"
+                              xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
+                              xmlns:entities="clr-namespace:Psychologist.Core.Repository.Entities;assembly=Psychologist.Core"
+                              xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
+                              x:DataType="viewModels:SearchViewModel"
+                              x:Class="Psychologist.UI.Views.SearchPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Horizontal">
+                <ImageButton Margin="5" Command="{Binding NavigationBackCommand}" BackgroundColor="Transparent">
+                    <ImageButton.Source>
+                        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                         Glyph="{x:Static resources:MaterialIcons.ArrowLeft}"
+                                         Color="Black" />
+                    </ImageButton.Source>
+                </ImageButton>
+                <SearchBar Placeholder="Поиск" Text="{Binding SearchQuery}" x:Name="SearchView"
+                           SearchCommand="{Binding SearchCommand}" />
+            </StackLayout>
+            <CollectionView Grid.Row="1" Margin="10"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedSubChapter}"
+                            SelectionChangedCommand="{Binding SubChapterSelectCommand}"
+                            SelectionChangedCommandParameter="{Binding SelectedSubChapter}"
+                            ItemsSource="{Binding DisplayItems}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="7" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="False" CornerRadius="8" Margin="8" x:DataType="entities:SubChapter">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <StackLayout>
+                                <Label TextColor="Black" FontSize="16" FontAttributes="Bold" Text="{Binding Title}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <Label Text="Ничего не найдено"></Label>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</abstractions:BaseContentPage>

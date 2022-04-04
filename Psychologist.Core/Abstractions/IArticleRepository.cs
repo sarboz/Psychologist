@@ -8,5 +8,6 @@ namespace Psychologist.Core.Abstractions
     {
         Task<Article> GetBySubChapterId(int id);
         void Update(Article article);
+        Task<List<Article>> Search(string text);
     }
 }

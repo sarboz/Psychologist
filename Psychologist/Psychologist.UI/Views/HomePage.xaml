@@ -6,9 +6,22 @@
                              xmlns:androidSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
                              xmlns:abstractions="clr-namespace:Psychologist.UI.Abstractions;assembly=Psychologist.UI"
                              xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
+                             xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
                              androidSpecific:TabbedPage.ToolbarPlacement="Bottom"
                              Title="Доступный Психолог"
                              x:Class="Psychologist.UI.Views.HomePage">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="Поиск"
+                     Order="Primary"
+                     Command="{Binding NavigateToSearchPageCommand}"
+                     Priority="0" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                 Glyph="{x:Static resources:MaterialIcons.SelectSearch}"
+                                 Color="White" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </TabbedPage.ToolbarItems>
     <TabbedPage.Children>
         <views:MainPage/>
         <views:FavoriteSubChapterPage/>

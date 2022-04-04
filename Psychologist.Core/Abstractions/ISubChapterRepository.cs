@@ -9,5 +9,6 @@ namespace Psychologist.Core.Abstractions
         Task<List<SubChapter>> GetSubChapterByChapterId(int chapterId);
         void Update(SubChapter subChapter);
         Task<List<SubChapter>> GetFavorites();
+        Task<List<SubChapter>> GetAll();
     }
 }
