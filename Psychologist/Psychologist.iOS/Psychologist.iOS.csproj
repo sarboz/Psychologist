@@ -111,6 +111,8 @@
     <ImageAsset Include="Assets.xcassets\Image-2.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Image-3.imageset\book_stack.png" />
+    <ImageAsset Include="Assets.xcassets\Image-3.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>

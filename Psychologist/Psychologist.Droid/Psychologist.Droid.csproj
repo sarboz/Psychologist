@@ -72,7 +72,9 @@
           <SubType>Designer</SubType>
           <Generator>MSBuild:UpdateGeneratedFiles</Generator>
         </AndroidResource>
+        <AndroidResource Include="Resources\drawable\book_stack.png" />
         <AndroidResource Include="Resources\drawable\boy.png" />
+        <AndroidResource Include="Resources\drawable\help.png" />
         <AndroidResource Include="Resources\drawable\high_five.png" />
         <AndroidResource Include="Resources\drawable\icon.xml">
           <SubType>Designer</SubType>

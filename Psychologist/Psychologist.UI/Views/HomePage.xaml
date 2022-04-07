@@ -21,11 +21,20 @@
                                  Color="White" />
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
+        <ToolbarItem Text="Информация"
+                     Order="Primary"
+                     Command="{Binding NavigateToSupportPageCommand}"
+                     Priority="0" >
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                 Glyph="{x:Static resources:MaterialIcons.Information}"
+                                 Color="White" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
     </TabbedPage.ToolbarItems>
     <TabbedPage.Children>
         <views:MainPage/>
         <views:FavoriteSubChapterPage/>
-        <views:AboutPage/>
-        <views:AuthorPage/>
+        <views:FeedbackPage/>
     </TabbedPage.Children>
 </abstractions:BaseTabbedPage>

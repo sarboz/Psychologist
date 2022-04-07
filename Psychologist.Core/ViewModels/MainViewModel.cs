@@ -39,17 +39,29 @@ namespace Psychologist.Core.ViewModels
         {
             if (SelectedChapter is not null)
             {
-                if (chapter.Id == 7)
+                switch (chapter.Id)
                 {
-                    var subChapterByChapterId =
-                        await _subChapterRepository.GetSubChapterByChapterId(_selectedChapter.Id);
-                    await _navigationService.NavigateAsync<ArticleViewModel>(("subChapter", subChapterByChapterId[0]));
-                    SelectedChapter = null;
-                    return;
+                    case 8:
+                    {
+                        var subChapterByChapterId =
+                            await _subChapterRepository.GetSubChapterByChapterId(_selectedChapter.Id);
+                        await _navigationService.NavigateAsync<ArticleViewModel>(("subChapter", subChapterByChapterId[0]));
+                        SelectedChapter = null;
+                        return;
+                    }
+                    case 9:
+                    {
+                        var subChapterByChapterId =
+                            await _subChapterRepository.GetSubChapterByChapterId(_selectedChapter.Id);
+                        await _navigationService.NavigateAsync<ArticleViewModel>(("subChapter", subChapterByChapterId[0]));
+                        SelectedChapter = null;
+                        return;
+                    }
+                    default:
+                        await _navigationService.NavigateAsync<SubChapterViewModel>(("chapter", SelectedChapter));
+                        SelectedChapter = null;
+                        break;
                 }
-
-                await _navigationService.NavigateAsync<SubChapterViewModel>(("chapter", SelectedChapter));
-                SelectedChapter = null;
             }
         }
 

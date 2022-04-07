@@ -13,8 +13,15 @@ namespace Psychologist.Core.ViewModels
         private readonly INavigationService _navigationService;
         private readonly ISubChapterRepository _repository;
         public readonly Chapter Chapter;
-        public SubChapter SelectedSubChapter { get; set; }
-        public ReactiveCommand<Unit, Unit> SubChapterSelectCommand { get; }
+        private SubChapter _selectedSubChapter;
+
+        public SubChapter SelectedSubChapter
+        {
+            get => _selectedSubChapter;
+            set => this.RaiseAndSetIfChanged(ref _selectedSubChapter, value);
+        }
+
+        public ReactiveCommand<SubChapter, Unit> SubChapterSelectCommand { get; }
         public ReactiveCommand<SubChapter, Unit> IsFavoriteChangedCommand { get; }
         public ObservableCollection<SubChapter> Items { get; } = new();
 
@@ -25,7 +32,7 @@ namespace Psychologist.Core.ViewModels
             _repository = repository;
             Chapter = chapter;
             Title = chapter.Title;
-            SubChapterSelectCommand = ReactiveCommand.CreateFromTask(NavigateToArticleViewModel);
+            SubChapterSelectCommand = ReactiveCommand.CreateFromTask<SubChapter>(NavigateToArticleViewModel);
             IsFavoriteChangedCommand = ReactiveCommand.Create<SubChapter>(ChangeFavoriteValue);
         }
 
@@ -35,7 +42,7 @@ namespace Psychologist.Core.ViewModels
             _repository.Update(obj);
         }
 
-        private Task NavigateToArticleViewModel()
+        private Task NavigateToArticleViewModel(SubChapter chapter)
         {
             if (SelectedSubChapter is not null)
             {

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
+             Title="Обратная связь"
+             x:Class="Psychologist.UI.Views.FeedbackPage">
+    <ContentPage.IconImageSource>
+        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                         Glyph="{x:Static resources:MaterialIcons.MessageText}"
+                         Color="Chartreuse" />
+    </ContentPage.IconImageSource>
+    <ContentPage.Content>
+        <Grid RowDefinitions="*,auto">
+           <Editor  x:Name="Entry" Placeholder="напишите свой вопрос"  Margin="20"/>
+           <Button Grid.Row="1" BackgroundColor="{StaticResource ColorPrimary}" Text="Отправить автору" Clicked="SendViaSMS"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

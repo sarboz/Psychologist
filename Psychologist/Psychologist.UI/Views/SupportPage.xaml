@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<abstractions:BaseTabbedPage x:TypeArguments="viewModels:SupportViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                             xmlns:abstractions="clr-namespace:Psychologist.UI.Abstractions;assembly=Psychologist.UI"
+                             xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
+                             xmlns:views="clr-namespace:Psychologist.UI.Views;assembly=Psychologist.UI"
+                             xmlns:androidSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+                             androidSpecific:TabbedPage.ToolbarPlacement="Bottom"
+                             Title="О приложении"
+                             x:Class="Psychologist.UI.Views.SupportPage">
+    <TabbedPage.Children>
+        <views:AboutPage/>
+        <views:AuthorPage/>
+    </TabbedPage.Children>
+</abstractions:BaseTabbedPage>

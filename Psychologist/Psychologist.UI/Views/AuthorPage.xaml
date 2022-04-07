@@ -7,6 +7,7 @@
                               xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
                               xmlns:abstractions="clr-namespace:Psychologist.UI.Abstractions;assembly=Psychologist.UI"
                               xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
+                              xmlns:system="clr-namespace:System;assembly=netstandard"
                               Title="Об авторе"
                               x:Class="Psychologist.UI.Views.AuthorPage">
     <ContentPage.IconImageSource>
@@ -23,21 +24,24 @@
                     <Label FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center"
                            Text=" Шухрат Гайбуллаевич Ибрагимов">
                     </Label>
-                    <Label HorizontalTextAlignment="Center"
-                           Text=" Магистр Психологии (Московский Финансово-Промышленный Университет «Синергия»)" />
+                    <Label HorizontalTextAlignment="Center" Text=" Магистр Психологии" />
+                    <Label HorizontalTextAlignment="Center" Text=" Московский Финансово-Промышленный Университет «Синергия»" />
                     <Label HorizontalTextAlignment="Center">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Автор книги: "></Span>
-                                <Span FontAttributes="Bold" Text="«В гостях у Всевышнего – Господа Миров». "></Span>
+                                <Span Text="{x:Static system:Environment.NewLine}"></Span>
+                                <Span FontAttributes="Bold" Text="«В гостях  у Всевышнего"></Span>
+                                <Span Text="{x:Static system:Environment.NewLine}"></Span>
+                                <Span FontAttributes="Bold" Text=" или 28 шагов к самопознанию». "></Span>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
                     <Label FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center" Margin="0,10,0,0">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Тел:" />
-                                <Span FontSize="18" ForegroundColor="#0095f6" FontAttributes="Bold" Text="(+992)92 777 24 45" />
+                                <Span Text="Тел: " />
+                                <Span FontSize="18" ForegroundColor="#0095f6" FontAttributes="Bold" Text="(+992) 92 777 24 45" />
                             </FormattedString>
                         </Label.FormattedText>
                         <Label.GestureRecognizers>
@@ -47,7 +51,7 @@
                     <Label FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,10,0,0">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Instagram:" />
+                                <Span Text="Instagram: " />
                                 <Span FontSize="18" FontAttributes="Bold" ForegroundColor="#0095f6" Text="@shukhratjoni" />
                             </FormattedString>
                         </Label.FormattedText>

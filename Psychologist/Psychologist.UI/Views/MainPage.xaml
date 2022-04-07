@@ -9,13 +9,18 @@
                               xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
                               xmlns:entities="clr-namespace:Psychologist.Core.Repository.Entities;assembly=Psychologist.Core"
                               xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
+                              xmlns:converters="clr-namespace:Psychologist.UI.Converters;assembly=Psychologist.UI"
                               x:Class="Psychologist.UI.Views.MainPage">
     <ContentPage.IconImageSource>
         <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
                          Glyph="{x:Static resources:MaterialIcons.HomeOutline}"
                          Color="Chartreuse" />
     </ContentPage.IconImageSource>
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:StringToBoolConverter x:Key="StringToBoolConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <StackLayout>
         <CollectionView
             Margin="10"
@@ -25,16 +30,24 @@
             SelectionChangedCommandParameter="{Binding SelectedChapter}"
             ItemsSource="{Binding Chapters}">
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Vertical"
-                                   ItemSpacing="7" />
+                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="5"  VerticalItemSpacing="5"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame CornerRadius="7" HasShadow="False" x:DataType="entities:Chapter">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="Transparent" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
                         <StackLayout>
-                            <Image Source="{Binding Image}" HeightRequest="120"/>
-                            <Label Text="{Binding ChapterOrder}" FontSize="Small"/>
-                            <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Title" />
+                            <Image HeightRequest="70" Source="{Binding Image}"  IsVisible="{Binding Image, Converter={StaticResource StringToBoolConverter}}"/>
+                            <Label Text="{Binding ChapterOrder}" FontSize="Small" IsVisible="{Binding Image, Converter={StaticResource StringToBoolConverter}}"/>
+                            <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="18" />
                         </StackLayout>
                     </Frame>
                 </DataTemplate>

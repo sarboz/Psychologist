@@ -9,16 +9,23 @@ namespace Psychologist.Core.ViewModels
     {
         private readonly INavigationService _navigationService;
         public ReactiveCommand<Unit, Unit> NavigateToSearchPageCommand { get; set; }
+        public ReactiveCommand<Unit, Unit> NavigateToSupportPageCommand { get; set; }
 
         public HomeViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
             NavigateToSearchPageCommand = ReactiveCommand.CreateFromTask(NavigateToSearchPage);
+            NavigateToSupportPageCommand = ReactiveCommand.CreateFromTask(NavigateToSupportPage);
         }
 
         private Task NavigateToSearchPage()
         {
             return _navigationService.NavigateAsync<SearchViewModel>();
+        }
+        
+        private Task NavigateToSupportPage()
+        {
+            return _navigationService.NavigateAsync<SupportViewModel>();
         }
     }
 }
