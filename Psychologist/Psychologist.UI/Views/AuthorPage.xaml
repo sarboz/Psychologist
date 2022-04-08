@@ -12,7 +12,7 @@
                               x:Class="Psychologist.UI.Views.AuthorPage">
     <ContentPage.IconImageSource>
         <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
-                         Glyph="{x:Static resources:MaterialIcons.InformationOutline}"
+                         Glyph="{x:Static resources:MaterialIcons.Account}"
                          Color="Chartreuse" />
     </ContentPage.IconImageSource>
     <ContentPage.Content>
