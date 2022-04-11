@@ -23,6 +23,7 @@ namespace Psychologist.UI
             
             builder.RegisterType<DatabasePathProvider>().As<IDatabasePathProvider>();
             builder.RegisterType<NavigationFacade>().As<INavigationFacade>();
+            builder.RegisterType<EnvironmentFacade>().As<IEnvironment>();
         }
     }
 }

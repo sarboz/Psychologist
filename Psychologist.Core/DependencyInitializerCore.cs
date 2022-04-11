@@ -1,6 +1,7 @@
 ﻿using System;
 using Autofac;
 using Autofac.Core;
+using Firebase.Database;
 using Microsoft.EntityFrameworkCore;
 using Psychologist.Core.Abstractions;
 using Psychologist.Core.Repository;
@@ -25,7 +26,8 @@ namespace Psychologist.Core
             builder.RegisterType<AuthorViewModel>().AsSelf();
             builder.RegisterType<SearchViewModel>().AsSelf();
             builder.RegisterType<SupportViewModel>().AsSelf();
-            
+
+            builder.RegisterInstance(new FirebaseClient("https://psychologist-bc200-default-rtdb.firebaseio.com")).SingleInstance();
             builder.RegisterType<Context>().As<IContext>().OnActivated(OnDatabaseCreating);
             builder.RegisterType<NavigationService>().As<INavigationService>().SingleInstance();
             builder.RegisterType<DependencyResolver>().As<IDependencyResolver>().SingleInstance();

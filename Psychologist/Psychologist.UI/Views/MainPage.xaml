@@ -18,7 +18,8 @@
     </ContentPage.IconImageSource>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <converters:StringToBoolConverter x:Key="StringToBoolConverter"/>
+            <converters:StringToBoolConverter x:Key="StringToBoolConverter" />
+            <converters:IntegerToBoolConverter x:Key="IntegerToBoolConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout>
@@ -30,7 +31,7 @@
             SelectionChangedCommandParameter="{Binding SelectedChapter}"
             ItemsSource="{Binding Chapters}">
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="5"  VerticalItemSpacing="5"/>
+                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="5" VerticalItemSpacing="5" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -44,9 +45,23 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
+
                         <StackLayout>
-                            <Image HeightRequest="70" Source="{Binding Image}"  IsVisible="{Binding Image, Converter={StaticResource StringToBoolConverter}}"/>
-                            <Label Text="{Binding ChapterOrder}" FontSize="Small" IsVisible="{Binding Image, Converter={StaticResource StringToBoolConverter}}"/>
+                            <Image HeightRequest="70" Source="{Binding Image}"
+                                   IsVisible="{Binding Image, Converter={StaticResource StringToBoolConverter}}" />
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding ChapterOrder}" FontSize="Small"
+                                       IsVisible="{Binding Image, Converter={StaticResource StringToBoolConverter}}" />
+                                <Image HorizontalOptions="EndAndExpand" IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}">
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                                         Glyph="{x:Static resources:MaterialIcons.Eye}"
+                                                         Color="Gray" Size="14" />
+                                    </Image.Source>
+                                </Image>
+                                <Label Text="{Binding ViewCount}" IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}" 
+                                       HorizontalTextAlignment="Start" />
+                            </StackLayout>
                             <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="18" />
                         </StackLayout>
                     </Frame>
