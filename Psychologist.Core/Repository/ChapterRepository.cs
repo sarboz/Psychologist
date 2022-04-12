@@ -26,14 +26,7 @@ namespace Psychologist.Core.Repository
             try
             {
                 var listAsync = await _context.Get<Chapter>().ToListAsync();
-                // listAsync.ForEach(item =>
-                // {
-                //     var readOnlyCollection = _firebaseClient.Child("chapters")
-                //         .OnceAsync<object>().Result;
-                //     item.ViewCount = readOnlyCollection.Count;
-                // });
-
-                return listAsync;
+               return listAsync;
             }
             catch (Exception e)
             {

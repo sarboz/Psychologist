@@ -62,7 +62,7 @@
                                 <Label Text="{Binding ViewCount}" IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}" 
                                        HorizontalTextAlignment="Start" />
                             </StackLayout>
-                            <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="18" />
+                            <Label Text="{Binding Title}"  FontAttributes="Bold" LineBreakMode="TailTruncation" FontSize="18" />
                         </StackLayout>
                     </Frame>
                 </DataTemplate>

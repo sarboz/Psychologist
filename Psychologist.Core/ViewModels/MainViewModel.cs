@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive;
@@ -18,6 +19,7 @@ namespace Psychologist.Core.ViewModels
         private readonly ISubChapterRepository _subChapterRepository;
         private readonly INavigationService _navigationService;
         private readonly FirebaseClient _firebaseClient;
+        private readonly INetworkConnectivity _connectivity;
         private Chapter _selectedChapter;
 
         public ObservableCollection<Chapter> Chapters { get; } = new();
@@ -31,12 +33,13 @@ namespace Psychologist.Core.ViewModels
         }
 
         public MainViewModel(IChapterRepository chapterRepository, ISubChapterRepository subChapterRepository,
-            INavigationService navigationService, FirebaseClient firebaseClient)
+            INavigationService navigationService, FirebaseClient firebaseClient, INetworkConnectivity connectivity)
         {
             _chapterRepository = chapterRepository;
             _subChapterRepository = subChapterRepository;
             _navigationService = navigationService;
             _firebaseClient = firebaseClient;
+            _connectivity = connectivity;
 
             ChapterSelectCommand = ReactiveCommand.CreateFromTask<Chapter>(NavigateToSubChapter);
         }
@@ -45,9 +48,15 @@ namespace Psychologist.Core.ViewModels
         {
             if (SelectedChapter is not null)
             {
-                var readOnlyCollection = await _firebaseClient.Child("chapters").OnceAsync<List<(string name,int value )>>();
-                var count = readOnlyCollection.First().Object;
-                await _firebaseClient.Child("chapters").Child(chapter.Id.ToString).PutAsync(1);
+                if (!chapter.IsViewed && _connectivity.IsConnected )
+                {
+                    var count = await _firebaseClient.Child("chapters").Child(chapter.Id.ToString)
+                        .OnceSingleAsync<int>();
+                    await _firebaseClient.Child("chapters").Child(chapter.Id.ToString).PutAsync(++count);
+                    chapter.IsViewed = true;
+                    _chapterRepository.Update(chapter);
+                }
+
                 switch (chapter.Id)
                 {
                     case 8:
@@ -76,11 +85,27 @@ namespace Psychologist.Core.ViewModels
             }
         }
 
-        public override async Task ViewInitialized()
+        public override async Task ViewAppearing()
         {
             Chapters.Clear();
             var chapters = await _chapterRepository.GetAll();
             Chapters.AddRange(chapters);
+        }
+
+        public override Task ViewInitialized()
+        {
+            if (_connectivity.IsConnected)
+                foreach (var chapter in Chapters)
+                    Task.Factory.StartNew(() => FetchCounts(chapter));
+            return Task.CompletedTask;
+        }
+
+        private async Task FetchCounts(Chapter item)
+        {
+            var readOnlyCollection = await _firebaseClient.Child("chapters").Child(item.Id.ToString)
+                .OnceSingleAsync<int>();
+            item.ViewCount = readOnlyCollection;
+            _chapterRepository.Update(item);
         }
     }
 }
