@@ -15,7 +15,7 @@
             <data android:scheme="mailto" />
         </intent>
     </queries>
-    
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
     <application android:label="Psychologist.Droid"/>
 </manifest>

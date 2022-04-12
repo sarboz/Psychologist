@@ -27,7 +27,7 @@
                      Priority="0" >
             <ToolbarItem.IconImageSource>
                 <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
-                                 Glyph="{x:Static resources:MaterialIcons.AccountTie}"
+                                 Glyph="{x:Static resources:MaterialIcons.Settings}"
                                  Color="White" />
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
