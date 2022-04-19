@@ -35,6 +35,7 @@
     <TabbedPage.Children>
         <views:MainPage/>
         <views:FavoriteSubChapterPage/>
+        <views:InfoPage/>
         <views:FeedbackPage/>
     </TabbedPage.Children>
 </abstractions:BaseTabbedPage>

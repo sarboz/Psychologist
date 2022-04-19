@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DynamicData;
 using Firebase.Database;
 using Firebase.Database.Query;
+using Microsoft.AppCenter.Crashes;
 using Psychologist.Core.Abstractions;
 using Psychologist.Core.Repository.Entities;
 using ReactiveUI;
@@ -48,13 +49,21 @@ namespace Psychologist.Core.ViewModels
         {
             if (SelectedChapter is not null)
             {
-                if (!chapter.IsViewed && _connectivity.IsConnected )
+                if (!chapter.IsViewed && _connectivity.IsConnected)
                 {
-                    var count = await _firebaseClient.Child("chapters").Child(chapter.Id.ToString)
-                        .OnceSingleAsync<int>();
-                    await _firebaseClient.Child("chapters").Child(chapter.Id.ToString).PutAsync(++count);
-                    chapter.IsViewed = true;
-                    _chapterRepository.Update(chapter);
+                    try
+                    {
+                        var count = await _firebaseClient.Child("chapters").Child(chapter.Id.ToString)
+                            .OnceSingleAsync<int>();
+                        await _firebaseClient.Child("chapters").Child(chapter.Id.ToString).PutAsync(++count);
+                        chapter.IsViewed = true;
+                        _chapterRepository.Update(chapter);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        Crashes.TrackError(e);
+                    }
                 }
 
                 switch (chapter.Id)
@@ -102,10 +111,18 @@ namespace Psychologist.Core.ViewModels
 
         private async Task FetchCounts(Chapter item)
         {
-            var readOnlyCollection = await _firebaseClient.Child("chapters").Child(item.Id.ToString)
-                .OnceSingleAsync<int>();
-            item.ViewCount = readOnlyCollection;
-            _chapterRepository.Update(item);
+            try
+            {
+                var readOnlyCollection = await _firebaseClient.Child("chapters").Child(item.Id.ToString)
+                    .OnceSingleAsync<int>();
+                item.ViewCount = readOnlyCollection;
+                _chapterRepository.Update(item);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Crashes.TrackError(e);
+            }
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿using System;
 using Autofac;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Psychologist.Core.Abstractions;
 using Psychologist.UI.Abstractions;
 using Xamarin.Forms;
@@ -16,10 +19,14 @@ namespace Psychologist.UI
             var container = new DependencyInitializer().Build();
             var navigationService = container.Resolve<INavigationService>();
             navigationService.InitMainPage();
+
+            AppCenter.Start("android=47f5c8bc-091b-45ae-817e-da4e629b8a8f;" +
+                            "ios=47f5c8bc-091b-45ae-817e-da4e629b8a8f;",
+                typeof(Analytics), typeof(Crashes));
             
-            AppDomain.CurrentDomain.UnhandledException += (s,e)=>
+            AppDomain.CurrentDomain.UnhandledException += (s, e) =>
             {
-                System.Diagnostics.Debug.WriteLine("AppDomain.CurrentDomain.UnhandledException: {0}. IsTerminating: {1}", e.ExceptionObject, e.IsTerminating);
+                Crashes.TrackError((Exception)e.ExceptionObject);
             };
         }
     }

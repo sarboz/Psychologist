@@ -35,7 +35,7 @@ namespace Psychologist.Core.ViewModels
 
         private Task NavigateToAuthorPage()
         {
-            return _navigationService.NavigateAsync<AuthorViewModel>();
+            return _navigationService.NavigateAsync<FeedbackViewModel>();
         }
 
         public override async Task ViewInitialized()

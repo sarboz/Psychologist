@@ -12,6 +12,5 @@
     <TabbedPage.Children>
         <views:AboutPage/>
         <views:AuthorPage/>
-        <views:InfoPage/>
     </TabbedPage.Children>
 </abstractions:BaseTabbedPage>

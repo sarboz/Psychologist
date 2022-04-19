@@ -26,6 +26,7 @@ namespace Psychologist.Core
             builder.RegisterType<AuthorViewModel>().AsSelf();
             builder.RegisterType<SearchViewModel>().AsSelf();
             builder.RegisterType<SupportViewModel>().AsSelf();
+            builder.RegisterType<FeedbackViewModel>().AsSelf();
 
             builder.RegisterInstance(new FirebaseClient("https://psychologist-bc200-default-rtdb.firebaseio.com")).SingleInstance();
             builder.RegisterType<Context>().As<IContext>().OnActivated(OnDatabaseCreating);
