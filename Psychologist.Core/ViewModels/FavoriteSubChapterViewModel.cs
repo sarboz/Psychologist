@@ -15,14 +15,22 @@ namespace Psychologist.Core.ViewModels
 
         public SubChapter SelectedSubChapter { get; set; }
         public ReactiveCommand<Unit, Unit> SubChapterSelectCommand { get; }
+        public ReactiveCommand<SubChapter, Unit> IsFavoriteChangedCommand { get; }
         public ObservableCollection<SubChapter> Items { get; set; } = new();
 
         public FavoriteSubChapterViewModel(ISubChapterRepository repository, INavigationService navigationService)
         {
             _repository = repository;
             _navigationService = navigationService;
-
+            
+            IsFavoriteChangedCommand = ReactiveCommand.Create<SubChapter>(ChangeFavoriteValue);
             SubChapterSelectCommand = ReactiveCommand.CreateFromTask(NavigateToArticleViewModel);
+        }
+        
+        private void ChangeFavoriteValue(SubChapter obj)
+        {
+            obj.IsFavorite = obj.IsFavorite != true;
+            _repository.Update(obj);
         }
 
         private Task NavigateToArticleViewModel()

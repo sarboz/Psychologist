@@ -9,6 +9,7 @@
                               xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
                               xmlns:entities="clr-namespace:Psychologist.Core.Repository.Entities;assembly=Psychologist.Core"
                               x:Class="Psychologist.UI.Views.FavoriteSubChapterPage"
+                              x:Name="This"
                               Title="Избранное">
     <ContentPage.IconImageSource>
         <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
@@ -32,7 +33,8 @@
                     <Frame HasShadow="True" x:DataType="entities:SubChapter">
                         <StackLayout Orientation="Horizontal">
                             <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Subtitle" />
-                            <ImageButton HorizontalOptions="EndAndExpand" BackgroundColor="Transparent">
+                            <ImageButton HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" Command="{Binding Source={x:Reference This}, Path= ViewModel.IsFavoriteChangedCommand}"
+                                         CommandParameter="{Binding .}">
                                 <ImageButton.Triggers>
                                     <DataTrigger Binding="{Binding IsFavorite}"
                                                  TargetType="ImageButton"
