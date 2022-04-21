@@ -61,6 +61,16 @@
                                 </Image>
                                 <Label Text="{Binding ViewCount}" IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}" 
                                        HorizontalTextAlignment="Start" />
+                                
+                                <Image HorizontalOptions="EndAndExpand" IsVisible="{Binding CommentCount, Converter={StaticResource IntegerToBoolConverter}}">
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                                         Glyph="{x:Static resources:MaterialIcons.Comment}"
+                                                         Color="Gray" Size="14" />
+                                    </Image.Source>
+                                </Image>
+                                <Label Text="{Binding CommentCount}" IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}" 
+                                       HorizontalTextAlignment="Start" />
                             </StackLayout>
                             <Label Text="{Binding Title}"  FontAttributes="Bold" LineBreakMode="TailTruncation" FontSize="18" />
                         </StackLayout>

@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<abstractions:BaseContentPage x:TypeArguments="viewModels:FeedbackViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+<abstractions:BaseContentPage x:TypeArguments="viewModels:FeedbackViewModel"
+                              xmlns="http://xamarin.com/schemas/2014/forms"
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
                               xmlns:abstractions="clr-namespace:Psychologist.UI.Abstractions;assembly=Psychologist.UI"
                               xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
                               Title="Обратная связь"
+                              x:DataType="viewModels:FeedbackViewModel"
                               x:Class="Psychologist.UI.Views.FeedbackPage">
     <abstractions:BaseContentPage.IconImageSource>
         <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
@@ -13,11 +15,15 @@
                          Color="Chartreuse" />
     </abstractions:BaseContentPage.IconImageSource>
     <abstractions:BaseContentPage.Content>
-        <Grid RowDefinitions="auto,auto,*,auto">
-           <Entry  x:Name="NameEntry" Placeholder="имя"  Margin="20" />
-           <Entry  x:Name="CityEntry" Placeholder="город"  Margin="20" Grid.Row="1"/>
-           <Editor  x:Name="Entry" Placeholder="напишите свой вопрос"  Margin="20" Grid.Row="2"/>
-           <Button Grid.Row="3" BackgroundColor="{StaticResource ColorPrimary}" Text="Отправить автору" Clicked="SendViaSMS"/>
+        <Grid RowDefinitions="auto,auto,auto,auto,*,auto">
+            <Entry x:Name="NameEntry" Placeholder="имя" Margin="20" />
+            <Entry x:Name="CityEntry" Placeholder="город" Margin="20" Grid.Row="1" />
+            <Entry x:Name="CountryEntry" Placeholder="страна" Margin="20" Grid.Row="2" />
+            <Picker Margin="20" SelectedItem="{Binding SelectedChapter}" Title="выберите раздел"
+                    ItemDisplayBinding="{ Binding Title}" ItemsSource="{Binding Chapters}" Grid.Row="3" />
+            <Editor x:Name="Entry" Placeholder="напишите свой вопрос" Margin="20" Grid.Row="4" />
+            <Button Margin="20" Command="{Binding CommentSendCommand}" Grid.Row="5" BackgroundColor="{StaticResource ColorPrimary}" Text="Отправить автору"
+                    Clicked="SendViaSMS" />
         </Grid>
     </abstractions:BaseContentPage.Content>
 </abstractions:BaseContentPage>

@@ -115,7 +115,10 @@ namespace Psychologist.Core.ViewModels
             {
                 var readOnlyCollection = await _firebaseClient.Child("chapters").Child(item.Id.ToString)
                     .OnceSingleAsync<int>();
+                var commentChapterCount = await _firebaseClient.Child("comments").Child(item.Id.ToString)
+                    .OnceSingleAsync<int>();
                 item.ViewCount = readOnlyCollection;
+                item.CommentCount = commentChapterCount;
                 _chapterRepository.Update(item);
             }
             catch (Exception e)

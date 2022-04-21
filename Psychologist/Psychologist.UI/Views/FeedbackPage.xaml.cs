@@ -14,7 +14,7 @@ using Xamarin.Forms.Xaml;
 namespace Psychologist.UI.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FeedbackPage 
+    public partial class FeedbackPage
     {
         public FeedbackPage()
         {
@@ -31,10 +31,10 @@ namespace Psychologist.UI.Views
                 if (!string.IsNullOrEmpty(NameEntry.Text))
                 {
                     text += $" С Уважением {NameEntry.Text}";
+                    if (!string.IsNullOrEmpty(CityEntry.Text))
+                        text += $" из {CityEntry.Text} {CountryEntry.Text}";
                 }
 
-                if (!string.IsNullOrEmpty(CityEntry.Text))
-                    text += $" из {CityEntry.Text}";
                 CrossMessaging.Current.SmsMessenger.SendSms("+992927772445", text);
             }
         }
