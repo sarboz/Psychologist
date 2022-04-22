@@ -44,7 +44,7 @@ namespace Psychologist.Core.ViewModels
                     "Напишете свое мнение о приложении", "Позже");
                 if (displayAlert)
                 {
-                    await _environment.OpenUrl("https://play.google.com/store/apps/details?id=com.whatsapp");
+                    await _environment.OpenUrl("https://play.google.com/store/apps/details?id=com.sarboz.psychologist");
                     _environment.SetValue("firstStart", DateTime.MaxValue.Subtract(TimeSpan.FromDays(10)).ToString("d"));
                 }
             }

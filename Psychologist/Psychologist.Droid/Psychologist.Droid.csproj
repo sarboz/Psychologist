@@ -45,6 +45,7 @@
         <AndroidSigningStorePass>S@rboz</AndroidSigningStorePass>
         <AndroidSigningKeyAlias>sarboz</AndroidSigningKeyAlias>
         <AndroidSigningKeyPass>S@rboz</AndroidSigningKeyPass>
+        <AndroidPackageFormat>aab</AndroidPackageFormat>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="Mono.Android" />
