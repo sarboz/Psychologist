@@ -24,8 +24,7 @@
                                          Size="25"/>
                     </ImageButton.Source>
                 </ImageButton>
-                <SearchBar Placeholder="Поиск" Text="{Binding SearchQuery}" x:Name="SearchView"
-                           SearchCommand="{Binding SearchCommand}" />
+                <SearchBar Placeholder="Поиск по словам " x:Name="SearchView" TextChanged="SearchView_OnTextChanged" />
             </StackLayout>
             <CollectionView Grid.Row="1" Margin="10"
                             SelectionMode="Single"

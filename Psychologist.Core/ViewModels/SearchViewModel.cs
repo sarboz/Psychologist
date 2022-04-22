@@ -57,7 +57,7 @@ namespace Psychologist.Core.ViewModels
         {
             if (_searchQuery.Length > 3)
             {
-                var articles = await _articleRepository.Search(_searchQuery);
+                var articles = await _articleRepository.Search(_searchQuery.ToLower());
                 DisplayItems.Clear();
 
                 var enumerable =

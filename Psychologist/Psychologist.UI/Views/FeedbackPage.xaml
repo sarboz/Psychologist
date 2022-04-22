@@ -16,13 +16,13 @@
     </abstractions:BaseContentPage.IconImageSource>
     <abstractions:BaseContentPage.Content>
         <Grid RowDefinitions="auto,auto,auto,auto,*,auto">
-            <Entry x:Name="NameEntry" Placeholder="имя" Margin="20" />
-            <Entry x:Name="CityEntry" Placeholder="город" Margin="20" Grid.Row="1" />
-            <Entry x:Name="CountryEntry" Placeholder="страна" Margin="20" Grid.Row="2" />
-            <Picker Margin="20" SelectedItem="{Binding SelectedChapter}" Title="выберите раздел"
+            <Entry x:Name="NameEntry" Placeholder="имя" Margin="20,8,20,8" />
+            <Entry x:Name="CityEntry" Placeholder="город" Margin="20,8,20,8" Grid.Row="1" />
+            <Entry x:Name="CountryEntry" Placeholder="страна" Margin="20,8,20,8" Grid.Row="2" />
+            <Picker Margin="20,8,20,8" SelectedItem="{Binding SelectedChapter}" Title="выберите раздел"
                     ItemDisplayBinding="{ Binding Title}" ItemsSource="{Binding Chapters}" Grid.Row="3" />
             <Editor x:Name="Entry" Placeholder="напишите свой вопрос" Margin="20" Grid.Row="4" />
-            <Button Margin="20" Command="{Binding CommentSendCommand}" Grid.Row="5" BackgroundColor="{StaticResource ColorPrimary}" Text="Отправить автору"
+            <Button Margin="20,8,20,8" Command="{Binding CommentSendCommand}" Grid.Row="5" BackgroundColor="{StaticResource ColorPrimary}" Text="Отправить автору"
                     Clicked="SendViaSMS" />
         </Grid>
     </abstractions:BaseContentPage.Content>

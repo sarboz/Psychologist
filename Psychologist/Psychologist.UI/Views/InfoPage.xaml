@@ -20,10 +20,13 @@
                     <Label FontSize="16" HorizontalTextAlignment="Center">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Данное приложение «Доступный Психолог» поможет Вам заново открыть для себя природу человека и по новой взглянуть на себя, чтобы улучшить свою жизнь и своё физическое и духовное состояние изнутри."></Span>
+                                <Span Text="Данное приложение&#x0a;"/>
+                                <Span FontAttributes="Bold" Text="«Доступный Психолог»&#x0a;"/>
+                                <Span Text="поможет Вам заново открыть для себя природу человека и по новой взглянуть на себя, чтобы улучшить свою жизнь и своё физическое и духовное состояние изнутри."></Span>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
+                    
                     <Label HorizontalTextAlignment="Center" FontSize="16" FontAttributes="Bold" Text="Автор - Шухрат Ибрагимов.  "></Label>
                 </StackLayout>
             </Grid>

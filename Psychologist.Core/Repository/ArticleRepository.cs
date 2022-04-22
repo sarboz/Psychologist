@@ -26,10 +26,12 @@ namespace Psychologist.Core.Repository
             _context.Update(article);
         }
 
-        public Task<List<Article>> Search(string text)
+        public async Task<List<Article>> Search(string text)
         {
-            return _context.Get<Article>().Where(article => article.Content.ToLower().Contains(text.ToLower())).Select(article =>
-                new Article { SubChapterId = article.SubChapterId, Id = article.Id }).ToListAsync();
+            var articles = await _context.Get<Article>().ToListAsync();
+            var enumerable = articles.Where(article => article.Content.ToLower().Contains(text)).Select(article =>
+                new Article { SubChapterId = article.SubChapterId, Id = article.Id });
+            return enumerable.ToList();
         }
     }
 }
