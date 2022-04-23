@@ -11,11 +11,6 @@
                               xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
                               xmlns:converters="clr-namespace:Psychologist.UI.Converters;assembly=Psychologist.UI"
                               x:Class="Psychologist.UI.Views.MainPage">
-    <ContentPage.IconImageSource>
-        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
-                         Glyph="{x:Static resources:MaterialIcons.HomeOutline}"
-                         Color="Chartreuse" />
-    </ContentPage.IconImageSource>
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:StringToBoolConverter x:Key="StringToBoolConverter" />
@@ -50,7 +45,7 @@
                             <Image HeightRequest="70" Source="{Binding Image}"
                                    IsVisible="{Binding Image, Converter={StaticResource StringToBoolConverter}}" />
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding ChapterOrder}" FontSize="Small"
+                                <Label Text="{Binding ChapterOrder}" FontSize="14" LineBreakMode="NoWrap"
                                        IsVisible="{Binding Image, Converter={StaticResource StringToBoolConverter}}" />
                                 <Image HorizontalOptions="EndAndExpand" IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}">
                                     <Image.Source>
@@ -59,7 +54,7 @@
                                                          Color="Gray" Size="14" />
                                     </Image.Source>
                                 </Image>
-                                <Label Text="{Binding ViewCount}" IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}" 
+                                <Label LineBreakMode="NoWrap" Text="{Binding ViewCount}" FontSize="13" IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}" 
                                        HorizontalTextAlignment="Start" />
                                 
                                 <Image HorizontalOptions="EndAndExpand" IsVisible="{Binding CommentCount, Converter={StaticResource IntegerToBoolConverter}}">
@@ -69,7 +64,7 @@
                                                          Color="Gray" Size="14" />
                                     </Image.Source>
                                 </Image>
-                                <Label Text="{Binding CommentCount}" IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}" 
+                                <Label LineBreakMode="NoWrap" Text="{Binding CommentCount}" FontSize="13"  IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}" 
                                        HorizontalTextAlignment="Start" />
                             </StackLayout>
                             <Label Text="{Binding Title}"  FontAttributes="Bold" LineBreakMode="TailTruncation" FontSize="18" />

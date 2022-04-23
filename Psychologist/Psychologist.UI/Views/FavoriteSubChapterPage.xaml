@@ -11,11 +11,6 @@
                               x:Class="Psychologist.UI.Views.FavoriteSubChapterPage"
                               x:Name="This"
                               Title="Избранное">
-    <ContentPage.IconImageSource>
-        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
-                         Glyph="{x:Static resources:MaterialIcons.HeartOutline}"
-                         Color="Chartreuse" />
-    </ContentPage.IconImageSource>
     <ContentPage.Content>
         <CollectionView
             Margin="10"

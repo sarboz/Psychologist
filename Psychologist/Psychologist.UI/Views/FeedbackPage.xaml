@@ -9,11 +9,6 @@
                               Title="Обратная связь"
                               x:DataType="viewModels:FeedbackViewModel"
                               x:Class="Psychologist.UI.Views.FeedbackPage">
-    <abstractions:BaseContentPage.IconImageSource>
-        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
-                         Glyph="{x:Static resources:MaterialIcons.MessageText}"
-                         Color="Chartreuse" />
-    </abstractions:BaseContentPage.IconImageSource>
     <abstractions:BaseContentPage.Content>
         <Grid RowDefinitions="auto,auto,auto,auto,*,auto">
             <Entry x:Name="NameEntry" Placeholder="имя" Margin="20,8,20,8" />
@@ -22,7 +17,7 @@
             <Picker Margin="20,8,20,8" SelectedItem="{Binding SelectedChapter}" Title="выберите раздел"
                     ItemDisplayBinding="{ Binding Title}" ItemsSource="{Binding Chapters}" Grid.Row="3" />
             <Editor x:Name="Entry" Placeholder="напишите свой вопрос" Margin="20" Grid.Row="4" />
-            <Button Margin="20,8,20,8" Command="{Binding CommentSendCommand}" Grid.Row="5" BackgroundColor="{StaticResource ColorPrimary}" Text="Отправить автору"
+            <Button Margin="20,8,20,8" Command="{Binding CommentSendCommand}" Grid.Row="5" TextColor="White" BackgroundColor="{StaticResource ColorPrimary}" Text="Отправить автору"
                     Clicked="SendViaSMS" />
         </Grid>
     </abstractions:BaseContentPage.Content>

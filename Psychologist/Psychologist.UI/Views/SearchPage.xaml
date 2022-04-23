@@ -7,6 +7,7 @@
                               xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
                               xmlns:entities="clr-namespace:Psychologist.Core.Repository.Entities;assembly=Psychologist.Core"
                               xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
+                              xmlns:iOsSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                               x:DataType="viewModels:SearchViewModel"
                               x:Class="Psychologist.UI.Views.SearchPage">
     <ContentPage.Content>
@@ -16,15 +17,32 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <StackLayout Orientation="Horizontal">
-                <ImageButton Margin="5,0,0,0" Command="{Binding NavigationBackCommand}" BackgroundColor="Transparent">
+                
+                <ImageButton  Command="{Binding NavigationBackCommand}" BackgroundColor="Transparent">
+                    <ImageButton.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="0,20,0,0" />
+                            <On Platform="Android" Value="5,0,0,0" />
+                        </OnPlatform>
+                    </ImageButton.Margin>
                     <ImageButton.Source>
                         <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
                                          Glyph="{x:Static resources:MaterialIcons.ArrowLeft}"
                                          Color="Black"
-                                         Size="25"/>
+                                         Size="25" />
                     </ImageButton.Source>
                 </ImageButton>
-                <SearchBar Placeholder="Поиск по словам " x:Name="SearchView" TextChanged="SearchView_OnTextChanged" />
+                <OnPlatform x:TypeArguments="View">
+                    <On Platform="iOS">
+                        <StackLayout Margin="0,20,0,0" Orientation="Horizontal">
+                        <Entry x:Name="SearchView"  Placeholder="Поиск по словам " TextChanged="SearchView_OnTextChanged" />
+                        </StackLayout>
+                    </On>
+                    <On Platform="Android">
+                        <SearchBar x:Name="SearchBar"  Placeholder="Поиск по словам " TextChanged="SearchView_OnTextChanged" />
+                    </On>
+                </OnPlatform>
+             
             </StackLayout>
             <CollectionView Grid.Row="1" Margin="10"
                             SelectionMode="Single"

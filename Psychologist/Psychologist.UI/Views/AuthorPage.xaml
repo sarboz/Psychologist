@@ -10,11 +10,6 @@
                               xmlns:system="clr-namespace:System;assembly=netstandard"
                               Title="Об авторе"
                               x:Class="Psychologist.UI.Views.AuthorPage">
-    <ContentPage.IconImageSource>
-        <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
-                         Glyph="{x:Static resources:MaterialIcons.Account}"
-                         Color="Chartreuse" />
-    </ContentPage.IconImageSource>
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
             <Grid RowDefinitions="auto,auto">

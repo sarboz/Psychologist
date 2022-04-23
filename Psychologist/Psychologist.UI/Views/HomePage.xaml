@@ -10,32 +10,60 @@
                              androidSpecific:TabbedPage.ToolbarPlacement="Bottom"
                              Title="Доступный Психолог"
                              x:Class="Psychologist.UI.Views.HomePage">
+    <abstractions:BaseTabbedPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="FontImageSource">
+                <Setter Property="Color" Value="Accent"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </abstractions:BaseTabbedPage.Resources>
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Поиск"
                      Order="Primary"
                      Command="{Binding NavigateToSearchPageCommand}"
-                     Priority="0" >
+                     Priority="0">
             <ToolbarItem.IconImageSource>
                 <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
                                  Glyph="{x:Static resources:MaterialIcons.Magnify}"
-                                 Color="White" />
+                                 Color="Accent" />
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
         <ToolbarItem Text="Информация"
                      Order="Primary"
                      Command="{Binding NavigateToSupportPageCommand}"
-                     Priority="0" >
+                     Priority="0">
             <ToolbarItem.IconImageSource>
                 <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
                                  Glyph="{x:Static resources:MaterialIcons.Settings}"
-                                 Color="White" />
+                                 Color="Accent" />
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
     </TabbedPage.ToolbarItems>
     <TabbedPage.Children>
-        <views:MainPage/>
-        <views:FavoriteSubChapterPage/>
-        <views:InfoPage/>
-        <views:FeedbackPage/>
+        <views:MainPage>
+            <views:MainPage.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                 Glyph="{x:Static resources:MaterialIcons.HomeOutline}" 
+                />
+            </views:MainPage.IconImageSource>
+        </views:MainPage>
+        <views:FavoriteSubChapterPage>
+            <views:FavoriteSubChapterPage.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                 Glyph="{x:Static resources:MaterialIcons.HeartOutline}"/>
+            </views:FavoriteSubChapterPage.IconImageSource>
+        </views:FavoriteSubChapterPage>
+        <views:InfoPage>
+            <views:InfoPage.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                 Glyph="{x:Static resources:MaterialIcons.HeartCircleOutline}" />
+            </views:InfoPage.IconImageSource>
+        </views:InfoPage>
+        <views:FeedbackPage>
+            <views:FeedbackPage.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                 Glyph="{x:Static resources:MaterialIcons.MessageText}" />
+            </views:FeedbackPage.IconImageSource>
+        </views:FeedbackPage>
     </TabbedPage.Children>
 </abstractions:BaseTabbedPage>

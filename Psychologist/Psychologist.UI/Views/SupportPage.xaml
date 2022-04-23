@@ -6,11 +6,30 @@
                              xmlns:viewModels="clr-namespace:Psychologist.Core.ViewModels;assembly=Psychologist.Core"
                              xmlns:views="clr-namespace:Psychologist.UI.Views;assembly=Psychologist.UI"
                              xmlns:androidSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+                             xmlns:resources="clr-namespace:Paradigm.UI.Resources;assembly=Psychologist.UI"
                              androidSpecific:TabbedPage.ToolbarPlacement="Bottom"
                              Title="О приложении"
                              x:Class="Psychologist.UI.Views.SupportPage">
+    <abstractions:BaseTabbedPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="FontImageSource">
+                <Setter Property="Color" Value="Accent"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </abstractions:BaseTabbedPage.Resources>
     <TabbedPage.Children>
-        <views:AboutPage/>
-        <views:AuthorPage/>
+        <views:AboutPage>
+            <views:AboutPage.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                 Glyph="{x:Static resources:MaterialIcons.InformationOutline}"
+                                 />
+            </views:AboutPage.IconImageSource>
+        </views:AboutPage>
+        <views:AuthorPage>
+            <views:AuthorPage.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
+                                 Glyph="{x:Static resources:MaterialIcons.Account}"/>
+            </views:AuthorPage.IconImageSource>
+        </views:AuthorPage>
     </TabbedPage.Children>
 </abstractions:BaseTabbedPage>

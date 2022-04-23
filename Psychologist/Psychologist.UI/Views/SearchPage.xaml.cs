@@ -21,7 +21,10 @@ namespace Psychologist.UI.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            SearchView.Focus();
+            if (Device.RuntimePlatform == Device.iOS)
+                 SearchView.Focus();
+            else
+               SearchBar.Focus();
         }
 
         private async void SearchView_OnTextChanged(object sender, TextChangedEventArgs e)
