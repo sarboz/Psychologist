@@ -64,7 +64,7 @@
                                                          Color="Gray" Size="14" />
                                     </Image.Source>
                                 </Image>
-                                <Label LineBreakMode="NoWrap" Text="{Binding CommentCount}" FontSize="13"  IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}" 
+                                <Label LineBreakMode="NoWrap" Text="{Binding CommentCount}" FontSize="13"  IsVisible="{Binding CommentCount, Converter={StaticResource IntegerToBoolConverter}}" 
                                        HorizontalTextAlignment="Start" />
                             </StackLayout>
                             <Label Text="{Binding Title}"  FontAttributes="Bold" LineBreakMode="TailTruncation" FontSize="18" />

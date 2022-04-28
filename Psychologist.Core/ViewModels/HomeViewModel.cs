@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reactive;
 using System.Threading.Tasks;
+using Microsoft.AppCenter;
 using Psychologist.Core.Abstractions;
 using ReactiveUI;
 
@@ -44,7 +45,7 @@ namespace Psychologist.Core.ViewModels
                     "Напишете свое мнение о приложении", "Позже");
                 if (displayAlert)
                 {
-                    await _environment.OpenUrl("https://play.google.com/store/apps/details?id=com.sarboz.psychologist");
+                    await _environment.OpenStoreForReview();
                     _environment.SetValue("firstStart", DateTime.MaxValue.Subtract(TimeSpan.FromDays(10)).ToString("d"));
                 }
             }

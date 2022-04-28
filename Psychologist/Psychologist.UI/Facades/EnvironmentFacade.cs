@@ -2,6 +2,7 @@
 using Psychologist.Core.Abstractions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Device = Microsoft.AppCenter.Device;
 
 namespace Psychologist.UI.Facades
 {
@@ -22,9 +23,13 @@ namespace Psychologist.UI.Facades
             return Preferences.Get(key, "");
         }
 
-        public Task OpenUrl(string url)
+        public Task OpenStoreForReview()
         {
-            return Browser.OpenAsync(url, BrowserLaunchMode.External);
+            if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
+            {
+                   return Browser.OpenAsync("https://play.google.com/store/apps/details?id=com.sarboz.psychologist", BrowserLaunchMode.External);
+            }
+            return Browser.OpenAsync("https://itunes.apple.com/in/app/dostupniyPsiholog/id284882215?mt=8", BrowserLaunchMode.External);
         }
     }
 }
