@@ -7,7 +7,7 @@ namespace Psychologist.Core.Abstractions
         Task<bool> DisplayAlert(string title, string message, string cancel);
         void SetValue(string key, string value);
         string GetValue(string key);
-        Task OpenUrl(string url);
+        Task OpenStoreForReview();
 
     }
 }
