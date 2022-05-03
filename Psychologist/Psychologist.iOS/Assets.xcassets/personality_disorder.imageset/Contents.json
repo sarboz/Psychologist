@@ -2,7 +2,11 @@
   "images" : [
     {
       "filename" : "personality_disorder.png",
-      "idiom" : "universal"
+      "idiom" : "iphone"
+    },
+    {
+      "filename" : "personality_disorder-1.png",
+      "idiom" : "ipad"
     }
   ],
   "info" : {

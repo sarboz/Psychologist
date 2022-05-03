@@ -2,7 +2,11 @@
   "images" : [
     {
       "filename" : "work_life.png",
-      "idiom" : "universal"
+      "idiom" : "iphone"
+    },
+    {
+      "filename" : "work_life-1.png",
+      "idiom" : "ipad"
     }
   ],
   "info" : {

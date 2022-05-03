@@ -3,6 +3,10 @@
     {
       "filename" : "help.png",
       "idiom" : "iphone"
+    },
+    {
+      "filename" : "playstore.png",
+      "idiom" : "ipad"
     }
   ],
   "info" : {

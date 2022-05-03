@@ -7,6 +7,10 @@
     {
       "idiom" : "iphone",
       "subtype" : "retina4"
+    },
+    {
+      "filename" : "author-1.png",
+      "idiom" : "ipad"
     }
   ],
   "info" : {

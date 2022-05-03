@@ -2,7 +2,11 @@
   "images" : [
     {
       "filename" : "oonIcon.png",
-      "idiom" : "universal"
+      "idiom" : "iphone"
+    },
+    {
+      "filename" : "oon_icon.png",
+      "idiom" : "ipad"
     }
   ],
   "info" : {

@@ -3,6 +3,10 @@
     {
       "filename" : "background.png",
       "idiom" : "iphone"
+    },
+    {
+      "filename" : "152.png",
+      "idiom" : "ipad"
     }
   ],
   "info" : {

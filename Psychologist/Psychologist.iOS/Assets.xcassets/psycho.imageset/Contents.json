@@ -2,7 +2,11 @@
   "images" : [
     {
       "filename" : "psycho.png",
-      "idiom" : "universal"
+      "idiom" : "iphone"
+    },
+    {
+      "filename" : "psycho-1.png",
+      "idiom" : "ipad"
     }
   ],
   "info" : {

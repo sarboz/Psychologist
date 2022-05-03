@@ -1,17 +1,12 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "scale" : "1x"
+      "filename" : "100.png",
+      "idiom" : "iphone"
     },
     {
-      "filename" : "high_five.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "167.png",
+      "idiom" : "ipad"
     }
   ],
   "info" : {
