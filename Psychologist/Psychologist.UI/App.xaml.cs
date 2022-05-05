@@ -21,7 +21,7 @@ namespace Psychologist.UI
             navigationService.InitMainPage();
 
             AppCenter.Start("android=47f5c8bc-091b-45ae-817e-da4e629b8a8f;" +
-                            "ios=47f5c8bc-091b-45ae-817e-da4e629b8a8f;",
+                            "ios=dcc58094-29c9-40a1-a2cb-fcfcd3db550b;",
                 typeof(Analytics), typeof(Crashes));
             
             AppDomain.CurrentDomain.UnhandledException += (s, e) =>
