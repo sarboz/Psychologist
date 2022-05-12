@@ -18,13 +18,6 @@
         </ResourceDictionary>
     </abstractions:BaseTabbedPage.Resources>
     <TabbedPage.Children>
-        <views:AboutPage>
-            <views:AboutPage.IconImageSource>
-                <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
-                                 Glyph="{x:Static resources:MaterialIcons.InformationOutline}"
-                                 />
-            </views:AboutPage.IconImageSource>
-        </views:AboutPage>
         <views:AuthorPage>
             <views:AuthorPage.IconImageSource>
                 <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
