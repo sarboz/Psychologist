@@ -25,13 +25,23 @@ namespace Psychologist.Core.Repository
         {
             try
             {
-                var listAsync = await _context.Get<Chapter>().ToListAsync();
-               return listAsync;
+                var listAsync = await _context.Get<Chapter>().Where(chapter => chapter.Visible).ToListAsync();
+                return listAsync;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 throw;
+            }
+        }
+
+        public async Task VisibleChapter()
+        {
+            var listAsync = await _context.Get<Chapter>().Where(chapter => !chapter.Visible).ToListAsync();
+            foreach (var chapter in listAsync)
+            {
+                chapter.Visible = true;
+                Update(chapter);
             }
         }
 

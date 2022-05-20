@@ -8,5 +8,6 @@ namespace Psychologist.Core.Abstractions
     {
         Task<List<Chapter>> GetAll();
         void Update(Chapter chapter);
+        public Task VisibleChapter();
     }
 }

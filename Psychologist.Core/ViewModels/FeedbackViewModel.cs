@@ -30,7 +30,7 @@ namespace Psychologist.Core.ViewModels
             set => this.RaiseAndSetIfChanged(ref _selected, value);
         }
 
-        public FeedbackViewModel(IChapterRepository repository, FirebaseClient firebaseClient, int idChapter=0)
+        public FeedbackViewModel(IChapterRepository repository, FirebaseClient firebaseClient, int idChapter = 0)
         {
             _repository = repository;
             _firebaseClient = firebaseClient;

@@ -24,5 +24,7 @@ namespace Psychologist.Core.Repository.Entities
             get => _commentCount;
             set => this.RaiseAndSetIfChanged(ref _commentCount, value);
         }
+        
+        public bool Visible { get; set; }
     }
 }
