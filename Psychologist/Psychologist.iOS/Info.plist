@@ -21,13 +21,13 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>12.0</string>
+	<string>13.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>Psychologist.UI</string>
+	<string>Доступный Психолог</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.sarboz.psychologist</string>
 	<key>CFBundleVersion</key>
-	<string>1.7</string>
+	<string>1.1</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
