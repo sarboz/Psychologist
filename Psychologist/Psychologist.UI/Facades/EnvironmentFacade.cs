@@ -29,7 +29,7 @@ namespace Psychologist.UI.Facades
             {
                    return Browser.OpenAsync("https://play.google.com/store/apps/details?id=com.sarboz.psychologist", BrowserLaunchMode.External);
             }
-            return Browser.OpenAsync("https://itunes.apple.com/in/app/dostupniyPsiholog/id284882215?mt=8", BrowserLaunchMode.External);
+            return Browser.OpenAsync("https://apps.apple.com/app/%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D0%B9-%D0%BF%D1%81%D0%B8%D1%85%D0%BE%D0%BB%D0%BE%D0%B3/id1621311064", BrowserLaunchMode.External);
         }
     }
 }

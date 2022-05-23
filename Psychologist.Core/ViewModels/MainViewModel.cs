@@ -96,6 +96,8 @@ namespace Psychologist.Core.ViewModels
 
         public override async Task ViewAppearing()
         {
+            if (DateTime.Now > DateTime.Parse("05/24/2022"))
+                await _chapterRepository.VisibleChapter();
             Chapters.Clear();
             var chapters = await _chapterRepository.GetAll();
             Chapters.AddRange(chapters);
@@ -104,8 +106,11 @@ namespace Psychologist.Core.ViewModels
         public override Task ViewInitialized()
         {
             if (_connectivity.IsConnected)
+            {
                 foreach (var chapter in Chapters)
                     Task.Factory.StartNew(() => FetchCounts(chapter));
+            }
+
             return Task.CompletedTask;
         }
 
@@ -117,12 +122,6 @@ namespace Psychologist.Core.ViewModels
                     .OnceSingleAsync<int>();
                 var commentChapterCount = await _firebaseClient.Child("comments").Child(item.Id.ToString)
                     .OnceSingleAsync<int>();
-                if (commentChapterCount > 5)
-                {
-                    await _chapterRepository.VisibleChapter();
-                    await ViewAppearing();
-                }
-
                 item.ViewCount = readOnlyCollection;
                 item.CommentCount = commentChapterCount;
                 _chapterRepository.Update(item);

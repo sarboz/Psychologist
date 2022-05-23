@@ -45,6 +45,12 @@ namespace Psychologist.Core.Repository
             }
         }
 
+        public async Task<bool> IsVisible()
+        {
+            var listAsync = await _context.Get<Chapter>().Where(chapter => !chapter.Visible).ToListAsync();
+            return listAsync.Any();
+        }
+
         public void Update(Chapter chapter)
         {
             _context.Update(chapter);
