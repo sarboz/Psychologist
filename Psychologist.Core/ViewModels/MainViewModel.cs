@@ -103,18 +103,20 @@ namespace Psychologist.Core.ViewModels
             Chapters.AddRange(chapters);
         }
 
-        public override Task ViewInitialized()
+        public override async Task ViewInitialized()
         {
             if (_connectivity.IsConnected)
             {
-                foreach (var chapter in Chapters)
-                    Task.Factory.StartNew(() => FetchCounts(chapter));
+                var enumerable = Chapters.Select(FetchCounts);
+                var chapters = await Task.WhenAll(enumerable);
+                foreach (var chapter in chapters)
+                {
+                    _chapterRepository.Update(chapter);
+                }
             }
-
-            return Task.CompletedTask;
         }
 
-        private async Task FetchCounts(Chapter item)
+        private async Task<Chapter> FetchCounts(Chapter item)
         {
             try
             {
@@ -124,13 +126,15 @@ namespace Psychologist.Core.ViewModels
                     .OnceSingleAsync<int>();
                 item.ViewCount = readOnlyCollection;
                 item.CommentCount = commentChapterCount;
-                _chapterRepository.Update(item);
+                return item;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 Crashes.TrackError(e);
             }
+
+            return item;
         }
     }
 }
