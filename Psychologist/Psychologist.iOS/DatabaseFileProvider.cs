@@ -15,10 +15,10 @@ namespace Psychologist.UI.iOS
         {
             var documentsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..",
                 "Library");
-            var path = Path.Combine(documentsPath, "psychologist2.db");
+            var path = Path.Combine(documentsPath, "psychologist_.db");
             if (!File.Exists(path))
             {
-                var existingDb = NSBundle.MainBundle.PathForResource("psychologist2", "db");
+                var existingDb = NSBundle.MainBundle.PathForResource("psychologist_", "db");
                 File.Copy(existingDb, path);
             }
         }

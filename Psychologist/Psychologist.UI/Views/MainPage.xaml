@@ -45,13 +45,13 @@
                             <Image HeightRequest="70" Source="{Binding Image}"
                                    IsVisible="{Binding Image, Converter={StaticResource StringToBoolConverter}}" />
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding ChapterOrder}" FontSize="14" LineBreakMode="NoWrap"
+                                <Label Text="{Binding ChapterOrder}" FontSize="12" LineBreakMode="NoWrap"
                                        IsVisible="{Binding Image, Converter={StaticResource StringToBoolConverter}}" />
                                 <Image HorizontalOptions="EndAndExpand" IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}">
                                     <Image.Source>
                                         <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
                                                          Glyph="{x:Static resources:MaterialIcons.Eye}"
-                                                         Color="Gray" Size="14" />
+                                                         Color="Gray" Size="12" />
                                     </Image.Source>
                                 </Image>
                                 <Label LineBreakMode="NoWrap" Text="{Binding ViewCount}" FontSize="13" IsVisible="{Binding ViewCount, Converter={StaticResource IntegerToBoolConverter}}" 
@@ -61,7 +61,7 @@
                                     <Image.Source>
                                         <FontImageSource FontFamily="{StaticResource MaterialFontFamily}"
                                                          Glyph="{x:Static resources:MaterialIcons.Comment}"
-                                                         Color="Gray" Size="14" />
+                                                         Color="Gray" Size="12" />
                                     </Image.Source>
                                 </Image>
                                 <Label LineBreakMode="NoWrap" Text="{Binding CommentCount}" FontSize="13"  IsVisible="{Binding CommentCount, Converter={StaticResource IntegerToBoolConverter}}" 

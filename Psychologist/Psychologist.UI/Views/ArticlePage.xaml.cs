@@ -13,10 +13,10 @@ namespace Psychologist.UI.Views
         }
 
         private HtmlWebViewSource _sourse = new ();
-        public int FontSize { get; set; } = 25;
+        public int FontSize { get; set; } = 18;
 
         protected override void OnAppearing()
-        {
+        {       
             base.OnAppearing();
             if (ViewModel != null)
             {
