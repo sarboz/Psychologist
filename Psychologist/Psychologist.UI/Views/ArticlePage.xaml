@@ -20,8 +20,7 @@
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-    <Grid Padding="5" RowDefinitions="20,*">
-        <WebView x:Name="WebView" Grid.Row="1"/>
-        <Button Grid.Row="0"  Text="+" Clicked="Button_OnClicked"/>
+    <Grid Padding="5">
+        <WebView x:Name="WebView"/>
     </Grid>
 </abstractions:BaseContentPage>

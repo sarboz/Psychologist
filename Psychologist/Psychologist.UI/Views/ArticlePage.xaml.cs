@@ -28,16 +28,5 @@ namespace Psychologist.UI.Views
 
             WebView.Reload();
         }
-
-        private void Button_OnClicked(object sender, EventArgs e)
-        {
-            _sourse = new HtmlWebViewSource();
-            FontSize += 4;
-            _sourse.Html =
-                $"<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'><style>img{{max-width:100%}}</style></header><body><div style='text-align: justify;text-indent: 20px; font-size: {FontSize}px'>" +
-                ViewModel.Article.Content + "</div></body>";
-            WebView.Source = _sourse;
-            WebView.Reload();
-        }
     }
 }

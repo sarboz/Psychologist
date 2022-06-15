@@ -12,11 +12,11 @@ namespace Psychologist.UI.Droid
         public async Task CopyToSpecificFolder()
         {
             var docFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            var dbFile = Path.Combine(docFolder, "psychologist.db");
+            var dbFile = Path.Combine(docFolder, "psychologist2.db");
             if (!File.Exists(dbFile))
             {
                 var writeStream = new FileStream(dbFile, FileMode.OpenOrCreate, FileAccess.Write);
-                await Forms.Context.Assets.Open("psychologist.db").CopyToAsync(writeStream);
+                await Forms.Context.Assets.Open("psychologist2.db").CopyToAsync(writeStream);
             }
         }
     }
