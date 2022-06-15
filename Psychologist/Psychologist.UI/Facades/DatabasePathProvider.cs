@@ -8,7 +8,7 @@ namespace Psychologist.UI.Facades
 {
     public class DatabasePathProvider : IDatabasePathProvider
     {
-        private const string DataBaseFileName = "psychologist.db";
+        private const string DataBaseFileName = "psychologist_.db";
 
         public string GetDatabasePath()
         {
