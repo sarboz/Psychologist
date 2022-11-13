@@ -96,7 +96,7 @@ namespace Psychologist.Core.ViewModels
 
         public override async Task ViewAppearing()
         {
-            if (DateTime.Now > DateTime.Parse("06/16/2022"))
+            if (DateTime.Now > DateTime.Parse("11/14/2022"))
                 await _chapterRepository.VisibleChapter();
             Chapters.Clear();
             var chapters = await _chapterRepository.GetAll();

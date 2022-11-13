@@ -43,17 +43,33 @@
                             <TapGestureRecognizer Tapped="PhoneTapGesture"></TapGestureRecognizer>
                         </Label.GestureRecognizers>
                     </Label>
-                    <Label FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,10,0,0">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Instagram: " />
-                                <Span FontSize="18" FontAttributes="Bold" ForegroundColor="#0095f6" Text="@shukhratjoni" />
-                            </FormattedString>
-                        </Label.FormattedText>
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="InstagramTapGesture"/>
-                        </Label.GestureRecognizers>
-                    </Label>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <ImageButton Margin="5" BackgroundColor="Transparent" Clicked="InstagramTapGesture">
+                        <Image.Source>
+                            <FontImageSource
+                                Size="30" Color="#E1306C"
+                                FontFamily="{StaticResource MaterialFontFamily}"
+                                Glyph="{x:Static resources:MaterialIcons.Instagram}" />
+                        </Image.Source>
+                    </ImageButton>
+                        <ImageButton Margin="5" BackgroundColor="Transparent" Clicked="TelegramOpen">
+                            <Image.Source>
+                                <FontImageSource
+                                    Color="#0088cc"
+                                    Size="30"
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    Glyph="{x:Static resources:MaterialIcons.Telegram}" />
+                            </Image.Source>
+                        </ImageButton>
+                        <ImageButton Margin="5" BackgroundColor="Transparent" Clicked="WhatsappOpen">
+                            <Image.Source>
+                                <FontImageSource
+                                    Size="30" Color="#25D366"
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    Glyph="{x:Static resources:MaterialIcons.Whatsapp}" />
+                            </Image.Source>
+                        </ImageButton>
+                    </StackLayout>
                     <Label FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,10,0,0">
                         <Label.FormattedText>
                             <FormattedString>

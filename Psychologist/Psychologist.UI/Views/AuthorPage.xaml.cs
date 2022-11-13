@@ -51,5 +51,31 @@ namespace Psychologist.UI.Views
                 Console.WriteLine(exception);
             }
         }
+
+        private void TelegramOpen(object sender, EventArgs e)
+        {
+            try
+            {
+                Launcher.OpenAsync("https://t.me/ShukhratIbragimov");
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+        }
+
+        private void WhatsappOpen(object sender, EventArgs e)
+        {
+            try
+            {
+                Launcher.OpenAsync("https://wa.me/992927772445");
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+        }
     }
 }

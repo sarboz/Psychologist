@@ -60,7 +60,7 @@
         <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
         <MtouchArch>ARM64</MtouchArch>
         <CodesignKey>iPhone Distribution</CodesignKey>
-        <CodesignProvision>distr Provisioning Profile</CodesignProvision>
+        <CodesignProvision>Automatic:AppStore</CodesignProvision>
         <MtouchLink>SdkOnly</MtouchLink>
     </PropertyGroup>
   <ItemGroup>
